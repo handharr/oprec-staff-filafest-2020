@@ -13,6 +13,8 @@ export default class Navbar extends Component {
 		return (
 			<AuthConsumer>
 				{({ isLogged, logout }) => (
+				<React.Fragment>
+					<div class="rainbow"></div>
 					<Menu size="big">
 						<a href="./" ><Menu.Item name="Login dan Daftar" active={activeItem === "Pendaftaran"}></Menu.Item>
 						</a>
@@ -31,6 +33,7 @@ export default class Navbar extends Component {
 							</Menu.Item>
 						</Menu.Menu>
 					</Menu>
+					</React.Fragment>	
 				)}
 			</AuthConsumer>
 		);
