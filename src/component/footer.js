@@ -8,7 +8,7 @@ export default class Navbar extends Component {
 		return (
 			<React.Fragment>
 				<div class="rainbow"></div>
-				<footer>
+				<footer style={{backgroundColor:"#475050",color:"white"}}>
 					Made with ❤ by BEM FILKOM 2019/2020.
 				</footer>
 			</React.Fragment>

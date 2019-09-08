@@ -64,7 +64,7 @@ class App extends Component {
       <AuthConsumer>
         {({ isLogged }) => (
           <React.Fragment>
-            <Navbar></Navbar>
+            <Navbar/>
               <Switch>
                 <Route exact path="/" component={Landing} />
                 <PrivateRoute exact path="/form" component={FormPendaftaran} status={isLogged} />

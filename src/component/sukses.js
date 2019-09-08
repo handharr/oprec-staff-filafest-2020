@@ -6,7 +6,7 @@ const Sukses = () => (
 	<AuthConsumer>
 		{({ link }) => (
 			<Message success>
-				<h1>Terimakasih Anda Telah Terdaftar sebagai Calon Staff!</h1>
+				<h1>Terimakasih Anda Telah Terdaftar sebagai Calon Ketua Pelaksana Inaugurasi 2019!</h1>
 				Download Berkas Anda di<a href={link}> link berikut</a>
 			</Message>
 		)}

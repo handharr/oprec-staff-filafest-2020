@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Menu } from "semantic-ui-react";
+import { Button, Menu, Icon } from "semantic-ui-react";
 import { AuthConsumer } from "../AuthContext";
 
 export default class Navbar extends Component {
@@ -13,27 +13,26 @@ export default class Navbar extends Component {
 		return (
 			<AuthConsumer>
 				{({ isLogged, logout }) => (
-				<React.Fragment>
-					<div class="rainbow"></div>
-					<Menu size="big">
-						<a href="./" ><Menu.Item name="Login dan Daftar" active={activeItem === "Pendaftaran"}></Menu.Item>
-						</a>
-						<Menu.Menu position="right">
-							<Menu.Item>
-								{isLogged && (
-									<Button
-										primary
-										onClick={() => {
-											logout();
-										}}
-									>
-										Logout
+					<React.Fragment>
+						<div class="rainbow"></div>
+						<Menu size="big" pointing secondary>
+							<Menu.Item name="Home" active={activeItem === "Pendaftaran"}><a href="./" style={{color:"black"}}><Icon size="large" name='home' /></a></Menu.Item>
+							{isLogged && (
+								<Menu.Menu position="right">
+									<Menu.Item>
+										<Button
+											primary
+											onClick={() => {
+												logout();
+											}}
+										>
+											Logout
 									</Button>
-								)}
-							</Menu.Item>
-						</Menu.Menu>
-					</Menu>
-					</React.Fragment>	
+									</Menu.Item>
+								</Menu.Menu>
+							)}
+						</Menu>
+					</React.Fragment>
 				)}
 			</AuthConsumer>
 		);
