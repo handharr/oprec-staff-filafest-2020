@@ -8,7 +8,9 @@ class AuthProvider extends React.Component {
 		nama: undefined,
 		nim: undefined,
 		prodi: undefined,
-		link: undefined
+		link: undefined,
+		token: undefined,
+		registered: false
 	};
 	constructor() {
 		super();
@@ -28,6 +30,7 @@ class AuthProvider extends React.Component {
 		this.setState({ nim: undefined });
 		this.setState({ prodi: undefined });
 		this.setState({ link: undefined });
+		this.setState({token:undefined});
 	}
 	login = async (nim, pass) => {
 		const body = {
@@ -35,55 +38,31 @@ class AuthProvider extends React.Component {
 			pass: pass
 		};
 		try {
-			const res = await fetch("https://backend-bem.herokuapp.com/auth", {
+			const res = await fetch("https://backend-bem.herokuapp.com/auth/login", {
 				method: "POST",
 				headers: {
 					"content-type": "application/json"
 				},
 				body: JSON.stringify(body)
 			});
+			const result = res;
 			const data = await res.json();
 			console.log(data);
-			if (!data.sukses) {
+			if (!result.ok) {
 				return false;
+			}else{
+				this.setState({ isLogged: true });
+				this.setState({ nim: data.nim });
+				this.setState({ nama: data.nama });
+				this.setState({ prodi: data.prodi });
+				this.setState({token: data.token});
+				console.log(this.state)
+				return {"status": true, "token": data.token};
 			}
-			this.setState({ isLogged: true });
-			this.setState({ nim: data.nim });
-			this.setState({ nama: data.nama });
-			this.setState({ prodi: data.prodi });
-			return true;
+			
 		} catch (error) {
 			console.log(error);
 		}
-		// return await fetch('https://backend-bem.herokuapp.com/auth', {
-		//     method: 'POST',
-		//     headers: {
-		//         'content-type': 'application/json'
-		//     },
-		//     body: JSON.stringify(body),
-		// })
-		//     .then(response => {
-		//         if (response.ok) {
-		//             console.log('sukses');
-		//             return response.json();
-
-		//         }
-		//         return response.json().then(error => {
-		//             throw new Error(error.message);
-		//         });
-		//     }).then(ress => {
-		//         console.log(ress);
-		//         if (!ress.sukses) {
-		//             return false
-		//         }
-
-		//         this.setState({ nim: ress.nim });
-		//         this.setState({ nama: ress.nama });
-		//         this.setState({ prodi: ress.prodi });
-		//         this.setState({ isLogged: true });
-		//         return true
-
-		//     })
 	};
 
 	render() {
@@ -97,7 +76,8 @@ class AuthProvider extends React.Component {
 					prodi: this.state.prodi,
 					login: this.login,
 					link: this.state.link,
-					logout: this.logout
+					logout: this.logout,
+					token: this.state.token
 				}}
 			>
 				{this.props.children}

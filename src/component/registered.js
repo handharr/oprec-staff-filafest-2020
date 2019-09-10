@@ -3,17 +3,14 @@ import { Message,Grid } from "semantic-ui-react";
 
 const Registered = () => (
 
-	<Grid columns={3}>
-		<Grid.Row stretched>
-			<Grid.Column></Grid.Column>
-			<Grid.Column>
-				<Message success>
+	<div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+	<div style={{width:'50vw'}}>
+		<Message success>
 					<h1>Terimakasih Anda Telah Terdaftar</h1>
 				</Message>
-			</Grid.Column>
-			<Grid.Column></Grid.Column>
-		</Grid.Row>
-	</Grid>
+	</div>
+	
+	</div>
 );
 
 export default Registered;

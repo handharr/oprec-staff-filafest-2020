@@ -10,7 +10,7 @@ export default class Landing extends Component {
 					<React.Fragment>
 						<header id="top">
 							<div id="headercontain">
-								<div id="welcome">OPTEN KAPEL-WAKAPEL<br />INAUGURASI FILKOM 2019</div>
+								<div id="welcome">Open Tender Ketua Pelaksana<br />INAUGURASI FILKOM 2019</div>
 								<span class="arrow animated bounce"></span>
 							</div>
 						</header>
@@ -23,16 +23,18 @@ export default class Landing extends Component {
 							<Header as='h1' >
 								<Icon name='info circle' />
 								<Header.Content>
-									INAUGURASI FILKOM
+									Inaugurasi Filkom
       								<Header.Subheader>Apa sih Inaugurasi Filkom itu?</Header.Subheader>
 								</Header.Content>
 							</Header>
 							<Placeholder>
 								<Placeholder.Paragraph>
 									<p style={{ fontSize: 15, fontWeight: 1500 }}>
-										Merupakan kegiatan penutup dari seluruh rangkaian kegiatan PK2MABA dan Startup Academy yang dilaksanakan dari, oleh, dan untuk mahasiswa baru. inaugurasi filkom bertujuan untuk melepas status mahasiswa baru menjadi bagian dari KBMFILKOM yang utuh serta kegiatan yang dapat menjadi wadah untuk mengembangkan minat dan bakat mahasiswa baru yang diharap dapat berekspresi dengan sekreatif dan sebaik mungkin, selain itu juga sebagai sarana agar mahasiswa baru saling mengenal satu sama lain dalam lingkup fakultas sehingga diharapkan mampu menciptakan sebuah solidaritas antar mahasiswa baru.
+										Merupakan kegiatan penutup dari seluruh rangkaian kegiatan PK2MABA dan Startup Academy yang dilaksanakan dari, oleh, dan untuk mahasiswa baru. Inaugurasi Filkom bertujuan untuk melepas status mahasiswa baru menjadi bagian dari KBMFILKOM yang utuh. Kegiatan ini dapat menjadi wadah untuk mengembangkan minat dan bakat mahasiswa baru, yang diharap dapat berekspresi dengan sekreatif dan sebaik mungkin. Selain itu juga sebagai sarana agar mahasiswa baru saling mengenal satu sama lain dalam lingkup fakultas, sehingga diharapkan mampu menciptakan sebuah solidaritas antar mahasiswa baru.
 									</p>
 								</Placeholder.Paragraph>
+
+								
 							</Placeholder>
 							<Divider section />
 							<Header as='h1' >
@@ -42,11 +44,17 @@ export default class Landing extends Component {
       								<Header.Subheader>Timeline untuk para calon ketua pelaksana</Header.Subheader>
 								</Header.Content>
 							</Header>
+							<center><Button className="center"
+									primary
+									centered
+									>
+									<Button.Content visible><a href="http://bit.ly/OptenInaugurasiFILKOM2019" target="_blank" style={{'color':'white'}}>Baca Prosedurnya!</a></Button.Content>
+								</Button></center>
 							<Step.Group widths={5}>
 								<Step>
 									<Icon name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title>10 - 15 September 2019</Step.Title>
+										<Step.Title>10 - 13 September 2019</Step.Title>
 										<Step.Description>Open Tender Ketua Pelaksana</Step.Description>
 									</Step.Content>
 								</Step>

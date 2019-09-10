@@ -19,15 +19,12 @@ export default class Login extends Component {
 		return (
 			<AuthConsumer>
 				{({ login }) => (
-					<div class="ui middle aligned center aligned grid">
-						<Grid columns={3} >
-							<Grid.Row stretched>
-								<Grid.Column></Grid.Column>
-								<Grid.Column>
+					<div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+						
 									<Header as="h2" textAlign="center">
 										Login
 								</Header>
-									<Segment>
+								<div style={{width:'50vw'}}>
 										<Form size="large">
 											<Form.Input fluid icon="user" iconPosition="left" placeholder="NIM" onChange={input => this.setState({ nim: input.target.value })} />
 											<Form.Input fluid icon="lock" iconPosition="left" placeholder="Password" type="password" onChange={input => this.setState({ password: input.target.value })} />
@@ -42,30 +39,37 @@ export default class Login extends Component {
 													fluid
 													size="large"
 													onClick={async () => {
-														this.setState({ loadin: true });
+														this.setState({ loading: true });
 														//cek nim
-														if (this.state.nim.startsWith("17") || this.state.nim.startsWith("18")) {
+														if (this.state.nim.startsWith("19") || this.state.nim == "175150207111005") {
 															await login(this.state.nim, this.state.password).then(ress => {
 																let a = ress;
 																console.log(ress);
-																if (!a) {
+																if (!a.status) {
 																	this.setState({ message: true });
 																	this.setState({ loading: false });
 																} else {
+																	// const URL = 'http://localhost:5000/api/web/protected/checkOptenInau';
+																	const URL = 'https://backend-bem.herokuapp.com/api/web/protected/checkOptenInau';
 																	const body = {
 																		nim: this.state.nim
 																	}
-																	const res = fetch("https://backend-bem.herokuapp.com/checkstaffpk2fila", {
+																	const res = fetch(URL, {
 																		method: "POST",
 																		headers: {
-																			"content-type": "application/json"
+																			"content-type": "application/json",
+																			"authorization": "bearer " + ress.token
 																		},
 																		body: JSON.stringify(body)
 																	}).then(ress => {
-																		if (ress.ok) {
+																		return ress.json()																		
+																	}).then(resss=>{
+																		if (resss.status) {
 																			this.setState({ loading: false });
 																			this.props.history.replace("/success");
 																		}
+																	}).catch(err => {
+																		alert('Request Time Out. Try Again!')
 																	})
 																	this.setState({ loading: false });
 																	this.props.history.replace("/form");
@@ -80,7 +84,7 @@ export default class Login extends Component {
 											</Button>
 											)}
 										</Form>
-									</Segment>
+										</div>
 									<br></br>
 									<br></br>
 									<br></br>
@@ -97,8 +101,8 @@ export default class Login extends Component {
 									{this.state.message === true && (
 										<Message
 											error
-											header='Anda Bukan Angkatan 2018!'
-											content='Hanya angkatan 18 yang diperkenankan mendaftar!'
+											header='Anda Bukan Angkatan 2019!'
+											content='Hanya angkatan 19 yang diperkenankan mendaftar!'
 										/>
 									)}
 									{this.state.message === true && (
@@ -108,10 +112,7 @@ export default class Login extends Component {
 											content='Silahkan Login Kembali!'
 										/>
 									)}
-								</Grid.Column>
-								<Grid.Column></Grid.Column>
-							</Grid.Row>
-						</Grid>
+								
 					</div>
 				)}
 			</AuthConsumer>
