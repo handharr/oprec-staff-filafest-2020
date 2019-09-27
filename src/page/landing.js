@@ -90,7 +90,7 @@ export default class Landing extends Component {
 							<br></br>
 							<br></br>
 							<div className="ui middle aligned center aligned container">
-								<p>Kamu kapel selanjutnya? klik tombol dibawah ini</p>
+								<p>Kamu ingin berkontribusi? klik tombol dibawah ini</p>
 								<Button
 									animated="vertical"
 									size="huge"
@@ -99,7 +99,7 @@ export default class Landing extends Component {
 									onClick={async () => {
 										this.props.history.replace("/login");
 									}}>
-									<Button.Content visible>Daftar Kapel</Button.Content>
+									<Button.Content visible>Daftar Staff</Button.Content>
 									<Button.Content hidden>Login</Button.Content>
 								</Button>
 							</div>

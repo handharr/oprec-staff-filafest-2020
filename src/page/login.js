@@ -21,7 +21,7 @@ export default class Login extends Component {
 				{({ login }) => (
 					<div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
 						
-									<Header as="h2" textAlign="center">
+								<Header as="h2" textAlign="center" style={{marginTop:30}}>
 										Login
 								</Header>
 								<div style={{width:'50vw'}}>

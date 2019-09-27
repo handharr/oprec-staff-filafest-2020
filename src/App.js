@@ -5,6 +5,7 @@ import Login from './page/login';
 import { AuthConsumer } from './AuthContext';
 
 import Landing from './page/landing';
+import Form from './page/form';
 import { Route, Switch, Redirect } from 'react-router';
 import Navbar from './component/navbar';
 import Sukses from './component/sukses';

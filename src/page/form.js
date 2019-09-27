@@ -7,6 +7,17 @@ import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css';
 // const URL = 'http://localhost:5000/api/web/protected/postOptenInau';
 const URL = "https://backend-bem.herokuapp.com/api/web/protected/postOptenInau";
 
+const divisi = [
+	{ key: 'm', text: 'Acara', value: 'acara' },
+	{ key: 'f', text: 'Humas', value: 'humas' },
+	{ key: 'o', text: 'Transkoper (Transportasi, Akomodasi, dan Perlengkapan)', value: 'transkoper' },
+	{ key: 'o', text: 'Kestari (Kesekretariatan)', value: 'kestari' },
+	{ key: 'o', text: 'Kodanus ', value: 'kodanus' },
+	{ key: 'o', text: 'DDM (Desain, Dokumentasi, dan Multimedia)', value: 'ddm' },
+	{ key: 'o', text: 'Kemankes (Keamanan dan Kesehatan', value: 'kemankes' },
+	{ key: 'o', text: 'Sponsorship', value: 'sponsorship' },
+]
+
 export default class FormPendaftaran extends Component {
 	constructor(props) {
 		super(props);
@@ -21,9 +32,13 @@ export default class FormPendaftaran extends Component {
 			line: "",
 			ig: "",
 			alasan: "",
+			divisi1:"",
+			divisi2 : "",
 			loading: false,
 		};
 	}
+
+
 
 	handleChange = (e, { value }) => this.setState({ value });
 
@@ -38,7 +53,8 @@ export default class FormPendaftaran extends Component {
 			hp: this.state.hp,
 			line: this.state.line,
 			ig: this.state.ig,
-			alasan: this.state.alasan,
+			divisi1 : this.state.divisi1,
+			divisi1 : this.state.divisi1, 
 		};
 		console.log(body);
 		await fetch(URL, {
@@ -66,52 +82,70 @@ export default class FormPendaftaran extends Component {
 
 
 	render() {
-		
+
 		return (
 			<AuthConsumer>
 				{({ nama, nim, prodi, token }) => (
-					<div style={{display:'flex',flexDirection:'column',alignItems:'center',margin:'10vw'}}>
+					<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '3vw' }}>
 						<Header textAlign="center" as='h1' content='Form Pendaftaran' />
-						<div style={{width:'50vw'}}>
-								<Form onSubmit={() => {
-									this.setState({ loading: true })
-									this.daftar(nama, nim, prodi, token)
-								}}>
-									<Form.Input fluid label="Nama Lengkap"  placeholder="Nama Lengkap" value={nama} readOnly />
-									<Form.Input fluid label="Nama Panggilan" onChange={(e)=>{this.setState({panggilan:e.target.value})}} placeholder="Nama Panggilan"/>
-									<Form.Input fluid label="NIM" placeholder="NIM" value={nim} readOnly />
-									{/*<Form.Input fluid label="TTL" placeholder="Tempat Tanggal Lahir"/>*/}
-									<Label>TTL</Label>
-									<SemanticDatepicker
-										onDateChange={(e)=>{this.setState({ttl:e[0]})}}
-										type="range"
-									/>
-									<Form.Input fluid label="Program Studi" placeholder="Program Studi" value={prodi} readOnly />
-									<Form.Input fluid label='Email' onChange={(e)=>{this.setState({email:e.target.value})}} placeholder='Email' />
-									<Form.Input fluid label="Line" onChange={(e)=>{this.setState({line:e.target.value})}} placeholder="ID Line"/>
-									<Form.Input fluid label="Instagram" onChange={(e)=>{this.setState({ig:e.target.value})}} placeholder="Instagram"/>
-									<Form.Input fluid label="Hp" onChange={(e)=>{this.setState({hp:e.target.value})}} placeholder="No. HP"/>
-									<Form.TextArea label="Alasan Mendaftar" required placeholder="Berikan alasanmu mendaftar menjadi kapel" onChange={e => this.setState({alasan:e.target.value})} />
-									{this.state.loading === false && (
-										<Button
-											color="blue"
-											fluid
+						<div style={{ width: '50vw' }}>
+							<Form onSubmit={() => {
+								this.setState({ loading: true })
+								this.daftar(nama, nim, prodi, token)
+							}}>
+								<Form.Input fluid label="Nama Lengkap" placeholder="Nama Lengkap" value={nama} readOnly />
+								<Form.Input required fluid label="Nama Panggilan" onChange={(e) => { this.setState({ panggilan: e.target.value }) }} placeholder="Nama Panggilan" />
+								<Form.Input fluid label="NIM" placeholder="NIM" value={nim} readOnly />
+								{/*<Form.Input fluid label="TTL" placeholder="Tempat Tanggal Lahir"/>*/}
+								<Label>TTL</Label>
+								<SemanticDatepicker
+									onDateChange={(e) => { this.setState({ ttl: e[0] }) }}
+									type="range"
+								/>
+								<Form.Input fluid label="Program Studi" placeholder="Program Studi" value={prodi} readOnly />
+								<Form.Input required fluid label='Email' onChange={(e) => { this.setState({ email: e.target.value }) }} placeholder='Email' />
+								<Form.Input required fluid label="Line" onChange={(e) => { this.setState({ line: e.target.value }) }} placeholder="ID Line" />
+								<Form.Input required fluid label="Instagram" onChange={(e) => { this.setState({ ig: e.target.value }) }} placeholder="Instagram" />
+								<Form.Input required fluid label="Hp" onChange={(e) => { this.setState({ hp: e.target.value }) }} placeholder="No. HP" />
+								{/* <Form.TextArea required label="Alasan Mendaftar" required placeholder="Berikan alasanmu mendaftar menjadi kapel" onChange={e => this.setState({alasan:e.target.value})} /> */}
+								<Form.Select
+									fluid
+									label='Divisi 1'
+									options={divisi}
+									placeholder='Silahkan pilih divisi'
+									onChange = {(e,{value})=>{
+										this.setState({divisi1 : value})
+									}} 
+								/>
+								<Form.Select
+									fluid
+									label='Silahkan pilih divisi'
+									options={divisi}
+									placeholder='Divisi 2'
+									onChange = {(e,{value})=>{
+										this.setState({divisi2 : value})
+									}}
+								/>
+								{this.state.loading === false && (
+									<Button
+										color="blue"
+										fluid
 
-										// onClick={() => {
+									// onClick={() => {
 
-										// 	this.setState({loading: true});
-										// 	// this.daftar(nama, nim, prodi);
-										// }}
-										>
-											Submit
+									// 	this.setState({loading: true});
+									// 	// this.daftar(nama, nim, prodi);
+									// }}
+									>
+										Submit
 							</Button>
-									)}
-									{this.state.loading === true && (
-										<Button color="blue" loading fluid>
-											Login
+								)}
+								{this.state.loading === true && (
+									<Button color="blue" loading fluid>
+										Login
 							</Button>
-									)}
-								</Form>
+								)}
+							</Form>
 						</div>
 					</div>
 				)}
