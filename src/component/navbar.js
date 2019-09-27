@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Button, Menu, Icon } from "semantic-ui-react";
+import { Button, Menu, Icon} from "semantic-ui-react";
 import { AuthConsumer } from "../AuthContext";
+import { Link } from 'react-router-dom'
 
 export default class Navbar extends Component {
 	state = { activeItem: "Pendaftaran" };
@@ -15,8 +16,12 @@ export default class Navbar extends Component {
 				{({ isLogged, logout }) => (
 					<React.Fragment>
 						<div class="rainbow"></div>
-						<Menu size="big" pointing secondary>
-							<Menu.Item name="Home" active={activeItem === "Pendaftaran"}><a href="./" style={{color:"black"}}><Icon size="large" name='home' /></a></Menu.Item>
+						<Menu size="big" stackable>
+							<Menu.Item as={ Link }  to='./' name="Home" active={activeItem === "Pendaftaran"} >
+								<Icon size="large" name='home' />
+							</Menu.Item>
+							
+							
 							{isLogged && (
 								<Menu.Menu position="right">
 									<Menu.Item>
@@ -31,6 +36,8 @@ export default class Navbar extends Component {
 									</Menu.Item>
 								</Menu.Menu>
 							)}
+
+
 						</Menu>
 					</React.Fragment>
 				)}
