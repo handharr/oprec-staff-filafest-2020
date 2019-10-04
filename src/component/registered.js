@@ -6,7 +6,7 @@ const Registered = () => (
 	<div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
 	<div style={{width:'50vw'}}>
 		<Message success>
-					<h1>Terimakasih Anda Telah Terdaftar</h1>
+					<h1>Pendaftaran Telah Ditutup</h1>
 				</Message>
 	</div>
 	

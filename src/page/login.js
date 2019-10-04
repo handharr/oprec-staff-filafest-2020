@@ -18,7 +18,7 @@ export default class Login extends Component {
 	render() {
 		return (
 			<AuthConsumer>
-				{({ login }) => (
+				{({ login , setStatus, setLoading }) => (
 					<div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
 						
 								<Header as="h2" textAlign="center" style={{marginTop:30}}>
@@ -41,7 +41,7 @@ export default class Login extends Component {
 													onClick={async () => {
 														this.setState({ loading: true });
 														//cek nim
-														if (this.state.nim.startsWith("19") || this.state.nim == "175150207111005") {
+														if (this.state.nim.startsWith("19") || this.state.nim == "175150207111005" || this.state.nim == "175150400111048" || this.state.nim == "185150200111030") {
 															await login(this.state.nim, this.state.password).then(ress => {
 																let a = ress;
 																console.log(ress);
@@ -49,8 +49,8 @@ export default class Login extends Component {
 																	this.setState({ message: true });
 																	this.setState({ loading: false });
 																} else {
-																	// const URL = 'http://localhost:5000/api/web/protected/checkOptenInau';
-																	const URL = 'https://backend-bem.herokuapp.com/api/web/protected/checkOptenInau';
+																	// const URL = 'http://localhost:5000/api/web/protected/checkOprecStaffInau';
+																	const URL = 'https://backend-bem.herokuapp.com/api/web/protected/checkOprecStaffInau';
 																	const body = {
 																		nim: this.state.nim
 																	}
@@ -64,12 +64,22 @@ export default class Login extends Component {
 																	}).then(ress => {
 																		return ress.json()																		
 																	}).then(resss=>{
-																		if (resss.status) {
+																		setStatus(resss.value);
+																		if (resss.status === true) {
 																			this.setState({ loading: false });
-																			this.props.history.replace("/success");
-																		}
+																			if (resss.value === null) {
+																			  setLoading(false);
+																			  this.props.history.replace("/success");
+																			} else {
+																			  setLoading(false);
+																			  this.props.history.replace("/notif");
+																			}
+																		  } else {
+																			setLoading(false);
+																		  }
 																	}).catch(err => {
-																		alert('Request Time Out. Try Again!')
+																		// alert('Request Time Out. Try Again!')
+																		console.log(err)
 																	})
 																	this.setState({ loading: false });
 																	this.props.history.replace("/form");

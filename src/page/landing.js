@@ -10,7 +10,7 @@ export default class Landing extends Component {
 					<React.Fragment>
 						<header id="top">
 							<div id="headercontain">
-								<div id="welcome">Open Tender Ketua Pelaksana<br />INAUGURASI FILKOM 2019</div>
+								<div id="welcome">Open Recruitment Staff<br />INAUGURASI FILKOM 2019</div>
 								<span class="arrow animated bounce"></span>
 							</div>
 						</header>
@@ -40,54 +40,46 @@ export default class Landing extends Component {
 							<Header as='h1' >
 								<Icon name='time' />
 								<Header.Content>
-									Timeline Open Tender
-      								<Header.Subheader>Timeline untuk para calon ketua pelaksana</Header.Subheader>
+									Timeline Open Reqruitment
+      								<Header.Subheader>Timeline pendaftaran staff Inaugurasi 2019</Header.Subheader>
 								</Header.Content>
 							</Header>
 							<center><Button className="center"
 									primary
 									centered
 									>
-									<Button.Content visible><a href="http://bit.ly/OptenInaugurasiFILKOM2019" target="_blank" style={{'color':'white'}}>Baca Prosedurnya!</a></Button.Content>
+									<Button.Content visible><a href="http://bit.ly/ProsedurOprecStaff" target="_blank" style={{'color':'white'}}>Baca Prosedurnya!</a></Button.Content>
 								</Button></center>
-							<Step.Group widths={5}>
+							<Step.Group widths={3}>
 								<Step>
 									<Icon name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title>10 - 13 September 2019</Step.Title>
-										<Step.Description>Open Tender Ketua Pelaksana</Step.Description>
+										<Step.Title>30 September - 2 Oktober 2019</Step.Title>
+										<Step.Description>Open Recruitment Staff Inaugurasi</Step.Description>
 									</Step.Content>
 								</Step>
 								<Step>
 									<Icon name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title>14 - 16 <br /> September 2019</Step.Title>
-										<Step.Description>Flash Screening</Step.Description>
+										<Step.Title>2 - 4 <br /> Oktober 2019</Step.Title>
+										<Step.Description>Screening</Step.Description>
 									</Step.Content>
 								</Step>
 								<Step>
 									<Icon name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title>16 <br /> September 2019</Step.Title>
-										<Step.Description>Pengumuman hasil Flash Screening</Step.Description>
-									</Step.Content>
-								</Step>
-								<Step>
-									<Icon name='calendar alternate outline' />
-									<Step.Content>
-										<Step.Title>20-22 <br /> September 2019</Step.Title>
-										<Step.Description>Fit and Proper Test</Step.Description>
-									</Step.Content>
-								</Step>
-								<Step>
-									<Icon name='calendar alternate outline' />
-									<Step.Content>
-										<Step.Title>24 <br /> September 2019</Step.Title>
-										<Step.Description>Pengumuman Ketua Pelaksana</Step.Description>
+										<Step.Title>5 <br /> Oktober 2019</Step.Title>
+										<Step.Description>Pengumuman hasil Screening</Step.Description>
 									</Step.Content>
 								</Step>
 							</Step.Group>
 							<br></br>
+							{<center><Button className="center"
+									primary
+									centered
+									>
+									<Button.Content visible><a href="http://bit.ly/BerkasOprecStaffInau" target="_blank" style={{'color':'white'}}>Download Form Offline</a></Button.Content>
+						</Button></center>}
 							<br></br>
 							<div className="ui middle aligned center aligned container">
 								<p>Kamu ingin berkontribusi? klik tombol dibawah ini</p>

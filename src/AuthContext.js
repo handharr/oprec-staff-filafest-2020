@@ -10,12 +10,16 @@ class AuthProvider extends React.Component {
 		prodi: undefined,
 		link: undefined,
 		token: undefined,
-		registered: false
+		registered: false,
+		status: undefined,
+		loading: true
 	};
 	constructor() {
 		super();
 		this.login = this.login.bind(this);
 		this.logout = this.logout.bind(this);
+		this.setStatus = this.setStatus.bind(this);
+		this.setLoading = this.setLoading.bind(this);
 	}
 	//   setInfo(){
 	//       this.setState({nama:nama});
@@ -31,6 +35,14 @@ class AuthProvider extends React.Component {
 		this.setState({ prodi: undefined });
 		this.setState({ link: undefined });
 		this.setState({token:undefined});
+	}
+	setStatus = (status) => {
+		this.setState({status: status});
+		console.log(this.state.status)
+	}
+	setLoading = (loading) => {
+		this.setState({loading: loading});
+		console.log(this.state.loading)
 	}
 	login = async (nim, pass) => {
 		const body = {
@@ -77,7 +89,10 @@ class AuthProvider extends React.Component {
 					login: this.login,
 					link: this.state.link,
 					logout: this.logout,
-					token: this.state.token
+					token: this.state.token,
+					status: this.state.status,
+					setStatus: this.setStatus,
+					setLoading: this.setLoading
 				}}
 			>
 				{this.props.children}

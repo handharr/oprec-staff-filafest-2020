@@ -12,6 +12,7 @@ import Sukses from './component/sukses';
 
 import Footer from './component/footer';
 import Registered from './component/registered';
+import Notif from './component/notif';
 // const PrivateRoute = ({ component: Component,status:isLogged,pilih:pilih, ...rest }) => (
 //   <Route {...rest} render={(props) => {
 //     if (pilih===undefined){
@@ -71,7 +72,8 @@ class App extends Component {
                 <PrivateRoute exact path="/form" component={FormPendaftaran} status={isLogged} />
                 <Route path="/login" component={Login} />
                 <PrivateRoute path="/success" component={Sukses} status={isLogged} />
-                <Route path="/registered" component={Registered} />
+                <PrivateRoute path="/notif" component={Notif} status={isLogged} />
+                <PrivateRoute path="/registered" component={Registered} status={isLogged}/>
               </Switch>
             <Footer/>
           </React.Fragment>

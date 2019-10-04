@@ -4,18 +4,18 @@ import { AuthConsumer } from "../AuthContext";
 import SemanticDatepicker from 'react-semantic-ui-datepickers';
 import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css';
 
-// const URL = 'http://localhost:5000/api/web/protected/postOptenInau';
-const URL = "https://backend-bem.herokuapp.com/api/web/protected/postOptenInau";
+// const URL = 'http://localhost:5000/api/web/protected/postOprecStaffInau';
+const URL = "https://backend-bem.herokuapp.com/api/web/protected/postOprecStaffInau";
 
 const divisi = [
 	{ key: 'm', text: 'Acara', value: 'acara' },
 	{ key: 'f', text: 'Humas', value: 'humas' },
-	{ key: 'o', text: 'Transkoper (Transportasi, Akomodasi, dan Perlengkapan)', value: 'transkoper' },
+	{ key: 'o', text: 'Perlengkapan', value: 'perlengkapan' },
 	{ key: 'o', text: 'Kestari (Kesekretariatan)', value: 'kestari' },
 	{ key: 'o', text: 'Kodanus ', value: 'kodanus' },
 	{ key: 'o', text: 'DDM (Desain, Dokumentasi, dan Multimedia)', value: 'ddm' },
 	{ key: 'o', text: 'Kemankes (Keamanan dan Kesehatan', value: 'kemankes' },
-	{ key: 'o', text: 'Sponsorship', value: 'sponsorship' },
+	{ key: 'o', text: 'Sponsor', value: 'sponsorship' },
 ]
 
 export default class FormPendaftaran extends Component {
@@ -54,7 +54,7 @@ export default class FormPendaftaran extends Component {
 			line: this.state.line,
 			ig: this.state.ig,
 			divisi1 : this.state.divisi1,
-			divisi1 : this.state.divisi1, 
+			divisi2 : this.state.divisi2, 
 		};
 		console.log(body);
 		await fetch(URL, {
@@ -82,7 +82,11 @@ export default class FormPendaftaran extends Component {
 
 
 	render() {
-
+		var batas = new Date("2019-10-02T24:00:00+07:00");
+		var sekarang = new Date();
+		if(batas < sekarang){
+			this.props.history.replace('/registered');
+		}
 		return (
 			<AuthConsumer>
 				{({ nama, nim, prodi, token }) => (
@@ -119,7 +123,7 @@ export default class FormPendaftaran extends Component {
 								/>
 								<Form.Select
 									fluid
-									label='Silahkan pilih divisi'
+									label='Divisi 2'
 									options={divisi}
 									placeholder='Divisi 2'
 									onChange = {(e,{value})=>{
