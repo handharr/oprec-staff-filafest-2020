@@ -41,7 +41,7 @@ export default class Login extends Component {
 													onClick={async () => {
 														this.setState({ loading: true });
 														//cek nim
-														if (this.state.nim.startsWith("19") || this.state.nim == "175150207111005" || this.state.nim == "175150400111048" || this.state.nim == "185150200111030") {
+														if (this.state.nim.startsWith("19") || this.state.nim == "175150207111005" || this.state.nim == "175150400111045" || this.state.nim == "185150200111030") {
 															await login(this.state.nim, this.state.password).then(ress => {
 																let a = ress;
 																console.log(ress);
