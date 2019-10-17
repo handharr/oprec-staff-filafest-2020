@@ -5,7 +5,7 @@ import SemanticDatepicker from 'react-semantic-ui-datepickers';
 import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css';
 
 // const URL = 'http://localhost:5000/api/web/protected/postOprecStaffInau';
-const URL = "https://backend-bem.herokuapp.com/api/web/protected/postOprecStaffInau";
+const URL = "https://backend-bem.herokuapp.com/api/web/protected/postOpregLOT2019";
 
 export default class FormPendaftaran extends Component {
 	constructor(props) {
@@ -14,6 +14,8 @@ export default class FormPendaftaran extends Component {
 			nim: "",
 			nama: "",
 			prodi: "",
+			id_line: "",
+			no_hp: "",
 			alasan: "",
 			loading: false,
 		};
@@ -25,8 +27,9 @@ export default class FormPendaftaran extends Component {
 		const body = {
 			nim: nim,
 			nama: nama,
-			panggilan: this.state.panggilan,
 			prodi: prodi,
+			id_line : this.state.id_line,
+			no_hp : this.state.no_hp,
 			alasan: this.state.alasan,
 		};
 		console.log(body);
@@ -44,7 +47,7 @@ export default class FormPendaftaran extends Component {
 					return response.json();
 				}
 				return response.json().then(error => {
-					throw new Error(error.message);
+					throw new Error(error);
 				});
 			})
 			.then(ress => {
@@ -53,11 +56,10 @@ export default class FormPendaftaran extends Component {
 			});
 	};
 
-
 	render() {
 		var batas = new Date("2020-10-02T24:00:00+07:00");
 		var sekarang = new Date();
-		if(batas < sekarang){
+		if (batas < sekarang) {
 			this.props.history.replace('/registered');
 		}
 		return (
@@ -73,7 +75,9 @@ export default class FormPendaftaran extends Component {
 								<Form.Input fluid label="Nama" placeholder="Nama" value={nama} readOnly />
 								<Form.Input fluid label="NIM" placeholder="NIM" value={nim} readOnly />
 								<Form.Input fluid label="Program Studi" placeholder="Program Studi" value={prodi} readOnly />
-								<Form.TextArea required label="Alasan Mendaftar" required placeholder="Berikan alasanmu mendaftar LOT" onChange={e => this.setState({alasan:e.target.value})} />
+								<Form.Input required fluid label="Line" onChange={(e) => { this.setState({ id_line: e.target.value }) }} placeholder="ID Line" />
+								<Form.Input required fluid label="Hp" onChange={(e) => { this.setState({ no_hp: e.target.value }) }} placeholder="No. HP" />
+								<Form.TextArea required label="Alasan Mendaftar" required placeholder="Berikan alasanmu mendaftar LOT" onChange={e => this.setState({ alasan: e.target.value })} />
 								{this.state.loading === false && (
 									<Button
 										color="blue"

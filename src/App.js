@@ -66,16 +66,16 @@ class App extends Component {
       <AuthConsumer>
         {({ isLogged }) => (
           <React.Fragment>
-            <Navbar/>
-              {/* <Switch>
+            <Navbar nama="tes"/>
+              <Switch>
                 <Route exact path="/" component={Landing} />
                 <PrivateRoute exact path="/form" component={FormPendaftaran} status={isLogged} />
                 <Route path="/login" component={Login} />
                 <PrivateRoute path="/success" component={Sukses} status={isLogged} />
                 <PrivateRoute path="/notif" component={Notif} status={isLogged} />
                 <PrivateRoute path="/registered" component={Registered} status={isLogged}/>
-              </Switch> */}
-              <FormPendaftaran/>
+              </Switch>
+              {/* <FormPendaftaran/> */}
             <Footer/>
           </React.Fragment>
         )}
