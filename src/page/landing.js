@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from "react";
-import { Image, Button, Grid, Segment, Container, Divider, Header, Icon, Placeholder, Step, List } from "semantic-ui-react";
+import React, { Component } from "react";
+import { Button, Grid, Container, Divider, Header, Icon, Placeholder, Step, List } from "semantic-ui-react";
 import "./style.scss";
 import { AuthConsumer } from "../AuthContext";
 export default class Landing extends Component {
@@ -42,7 +42,7 @@ export default class Landing extends Component {
       								<Header.Subheader>Ada beberapa Tools/Implementasi yang bisa didapat</Header.Subheader>
 								</Header.Content>
 							</Header>
-							<Grid columns={3} stackable style={{marginTop:0}}>
+							<Grid columns={3} stackable style={{ marginTop: 0 }}>
 								<Grid.Column>
 									<Placeholder>
 										<Placeholder.Header style={{ textAlign: "center" }}>
@@ -106,25 +106,41 @@ export default class Landing extends Component {
 							>
 								<Button.Content visible><a href="http://bit.ly/ProsedurOprecStaff" target="_blank" style={{ 'color': 'white' }}>Baca Prosedurnya!</a></Button.Content>
 							</Button></center> */}
-							<Step.Group widths={3}>
+							<Step.Group widths={5}>
 								<Step>
 									<Icon name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title>03 November 2019</Step.Title>
+										<Step.Title style={{fontSize:14}}>21 Oktober 2019</Step.Title>
+										<Step.Description>18:00 WIB</Step.Description>
+										<Step.Description>Pendaftaran dibuka</Step.Description>
+									</Step.Content>
+								</Step>
+								<Step>
+									<Icon name='calendar alternate outline' />
+									<Step.Content>
+										<Step.Title style={{fontSize:14}}>02 November 2019</Step.Title>
+										<Step.Description>24:00 WIB</Step.Description>
+										<Step.Description>Pendaftaran ditutup</Step.Description>
+									</Step.Content>
+								</Step>
+								<Step>
+									<Icon name='calendar alternate outline' />
+									<Step.Content>
+										<Step.Title style={{fontSize:14}}>03 November 2019</Step.Title>
 										<Step.Description>Rangkaian 1</Step.Description>
 									</Step.Content>
 								</Step>
 								<Step>
 									<Icon name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title>10 November 2019</Step.Title>
+										<Step.Title style={{fontSize:14}}>10 November 2019</Step.Title>
 										<Step.Description>Rangkaian 2</Step.Description>
 									</Step.Content>
 								</Step>
 								<Step>
 									<Icon name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title>24 November 2019</Step.Title>
+										<Step.Title style={{fontSize:14}}>24 November 2019</Step.Title>
 										<Step.Description>Rangkaian 3</Step.Description>
 									</Step.Content>
 								</Step>

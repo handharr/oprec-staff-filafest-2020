@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Menu, Image, Icon } from "semantic-ui-react";
+import { Menu, Image, Icon } from "semantic-ui-react";
 import { AuthConsumer } from "../AuthContext";
 import { Link } from 'react-router-dom'
 
@@ -23,7 +23,7 @@ export default class Navbar extends Component {
 						<Menu size="massive" style={{ margin: 0, padding: 0, backgroundColor: "#F4F6F8" }} secondary color='violet'>
 							<Menu.Item style={{ padding: 0 }} as={Link} to='./' name="Home"  >
 								{/* <Icon size="large" name='home' /> */}
-								<Image style={{ width: 150, padding: 0 }} src="/img/logofix.png" />
+								<Image style={{ width: 50, marginLeft : 5 }} src="/img/lotlogofixbackcrop.JPG" />
 							</Menu.Item>
 							{isLogged && (
 								<Menu.Menu position="right">

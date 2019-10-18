@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Form, Button, Grid, Header, Label } from "semantic-ui-react";
+import { Form, Button, Header } from "semantic-ui-react";
 import { AuthConsumer } from "../AuthContext";
-import SemanticDatepicker from 'react-semantic-ui-datepickers';
+// import SemanticDatepicker from 'react-semantic-ui-datepickers';
 import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css';
 
 // const URL = 'http://localhost:5000/api/web/protected/postOprecStaffInau';
@@ -28,8 +28,8 @@ export default class FormPendaftaran extends Component {
 			nim: nim,
 			nama: nama,
 			prodi: prodi,
-			id_line : this.state.id_line,
-			no_hp : this.state.no_hp,
+			id_line: this.state.id_line,
+			no_hp: this.state.no_hp,
 			alasan: this.state.alasan,
 		};
 		console.log(body);
@@ -57,10 +57,14 @@ export default class FormPendaftaran extends Component {
 	};
 
 	render() {
-		var batas = new Date("2020-10-02T24:00:00+07:00");
+		var batas = new Date("2019-11-02T24:00:00+07:00");
+		var pembukaan = new Date("2019-10-21T18:00:00+07:00");
 		var sekarang = new Date();
 		if (batas < sekarang) {
 			this.props.history.replace('/registered');
+		}
+		if (pembukaan > sekarang){
+			this.props.history.replace('/closed')
 		}
 		return (
 			<AuthConsumer>
@@ -76,7 +80,7 @@ export default class FormPendaftaran extends Component {
 								<Form.Input fluid label="NIM" placeholder="NIM" value={nim} readOnly />
 								<Form.Input fluid label="Program Studi" placeholder="Program Studi" value={prodi} readOnly />
 								<Form.Input required fluid label="Line" onChange={(e) => { this.setState({ id_line: e.target.value }) }} placeholder="ID Line" />
-								<Form.Input required fluid label="Hp" onChange={(e) => { this.setState({ no_hp: e.target.value }) }} placeholder="No. HP" />
+								<Form.Input required type="number" fluid label="Hp" onChange={(e) => { this.setState({ no_hp: e.target.value }) }} placeholder="No. HP" />
 								<Form.TextArea required label="Alasan Mendaftar" required placeholder="Berikan alasanmu mendaftar LOT" onChange={e => this.setState({ alasan: e.target.value })} />
 								{this.state.loading === false && (
 									<Button

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, Grid, Header, Segment, Message } from "semantic-ui-react";
+import { Button, Form, Header, Message } from "semantic-ui-react";
 import { AuthConsumer } from "../AuthContext";
 
 export default class Login extends Component {
@@ -100,16 +100,19 @@ export default class Login extends Component {
 						<br></br>
 						<br></br>
 						{this.state.loading === true && (
-							<div class="ui icon message">
-								<i class="notched circle loading icon" />
-								<div class="content">
-									<div class="header">Just one second</div>
-									<p>We're fetching that content for you.</p>
+							<div style={{ marginBottom: 50, marginTop: -10 }}>
+								<div class="ui icon message">
+									<i class="notched circle loading icon" />
+									<div class="content">
+										<div class="header">Just one second</div>
+										<p>We're fetching that content for you.</p>
+									</div>
 								</div>
 							</div>
 						)}
 						{this.state.message === true && (
 							<Message
+								style={{ marginBottom: 50, marginTop: -10 }}
 								error
 								header='Password atau Nim salah!'
 								content='Silahkan Login Kembali!'
