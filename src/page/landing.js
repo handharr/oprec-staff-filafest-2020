@@ -21,7 +21,7 @@ export default class Landing extends Component {
 								<p>Merupakan kegiatan penutup dari seluruh rangkaian kegiatan PK2MABA dan Startup Academy yang dilaksanakan dari, oleh, dan untuk mahasiswa baru. inaugurasi filkom bertujuan untuk melepas status mahasiswa baru menjadi bagian dari KBMFILKOM yang utuh serta kegiatan yang dapat menjadi wadah untuk mengembangkan minat dan bakat mahasiswa baru yang diharap dapat berekspresi dengan sekreatif dan sebaik mungkin, selain itu juga sebagai sarana agar mahasiswa baru saling mengenal satu sama lain dalam lingkup fakultas sehingga diharapkan mampu menciptakan sebuah solidaritas antar mahasiswa baru.</p>
 							</div> */}
 							<Header as='h1' >
-								<Icon name='info circle' />
+								<Icon style={{color:"#EE5303"}} name='info circle' />
 								<Header.Content>
 									Leader of Tomorrow
       								<Header.Subheader>Apa sih Leader of Tomorrow itu?</Header.Subheader>
@@ -30,13 +30,13 @@ export default class Landing extends Component {
 							<Placeholder>
 								<Placeholder.Paragraph>
 									<p style={{ fontSize: 15, fontWeight: 1500, textAlign: "justify" }}>
-										LOT (Leader Of Tomorrow) merupakan kegiatan pelatihan dan pengembangan softskill yang dilaksanakan dalam 3 rangkaian dan didalam masing masing rangkaian terdapat penyampaian materi dan praktik secara langsung. Materi-materi tersebut meliputi <strong style={{ color: "red" }}>Management, Critical Thinking, dan Effective Communication</strong>. Kegiatan ini bertujuan untuk membekali mahasiswa dengan wawasan dan keterampilan dalam mengembangkan softskill, yang berguna dalam memimpin suatu organisasi, kelembagaan, serta pembekalan untuk memasuki dunia pekerjaan
+										LOT (Leader Of Tomorrow) merupakan kegiatan pelatihan dan pengembangan softskill yang dilaksanakan dalam 3 rangkaian dan didalam masing masing rangkaian terdapat penyampaian materi dan praktik secara langsung. Materi-materi tersebut meliputi <strong style={{color:"#EE5303"}}>Management, Critical Thinking, dan Effective Communication</strong>. Kegiatan ini bertujuan untuk membekali mahasiswa dengan wawasan dan keterampilan dalam mengembangkan softskill, yang berguna dalam memimpin suatu organisasi, kelembagaan, serta pembekalan untuk memasuki dunia pekerjaan
 									</p>
 								</Placeholder.Paragraph>
 							</Placeholder>
 							<Divider section />
 							<Header as='h1' >
-								<Icon name='list alternate' />
+								<Icon color="blue" name='list alternate' />
 								<Header.Content>
 									Deskripsi Kegiatan
       								<Header.Subheader>Ada beberapa Tools/Implementasi yang bisa didapat</Header.Subheader>
@@ -94,8 +94,8 @@ export default class Landing extends Component {
 							</Grid>
 							<Divider section />
 							<Header as='h1' >
-								<Icon name='time' />
-								<Header.Content>
+								<Icon color="green" name='time' />
+								<Header.Content >
 									Timeline Leader of Tomorrow
       								<Header.Subheader>Rangkaian kegiatan LOT 2019</Header.Subheader>
 								</Header.Content>
@@ -108,39 +108,39 @@ export default class Landing extends Component {
 							</Button></center> */}
 							<Step.Group widths={5}>
 								<Step>
-									<Icon name='calendar alternate outline' />
+									<Icon color="olive" name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title style={{fontSize:14}}>21 Oktober 2019</Step.Title>
+										<Step.Title style={{ fontSize: 14 }}>21 Oktober 2019</Step.Title>
 										<Step.Description>18:00 WIB</Step.Description>
 										<Step.Description>Pendaftaran dibuka</Step.Description>
 									</Step.Content>
 								</Step>
 								<Step>
-									<Icon name='calendar alternate outline' />
+									<Icon color="red" name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title style={{fontSize:14}}>02 November 2019</Step.Title>
+										<Step.Title style={{ fontSize: 14 }}>02 November 2019</Step.Title>
 										<Step.Description>24:00 WIB</Step.Description>
 										<Step.Description>Pendaftaran ditutup</Step.Description>
 									</Step.Content>
 								</Step>
 								<Step>
-									<Icon name='calendar alternate outline' />
+									<Icon color="blue" name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title style={{fontSize:14}}>03 November 2019</Step.Title>
+										<Step.Title style={{ fontSize: 14 }}>03 November 2019</Step.Title>
 										<Step.Description>Rangkaian 1</Step.Description>
 									</Step.Content>
 								</Step>
 								<Step>
-									<Icon name='calendar alternate outline' />
+									<Icon color="blue" name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title style={{fontSize:14}}>10 November 2019</Step.Title>
+										<Step.Title style={{ fontSize: 14 }}>10 November 2019</Step.Title>
 										<Step.Description>Rangkaian 2</Step.Description>
 									</Step.Content>
 								</Step>
 								<Step>
-									<Icon name='calendar alternate outline' />
+									<Icon color="blue" name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title style={{fontSize:14}}>24 November 2019</Step.Title>
+										<Step.Title style={{ fontSize: 14 }}>24 November 2019</Step.Title>
 										<Step.Description>Rangkaian 3</Step.Description>
 									</Step.Content>
 								</Step>

@@ -3,7 +3,7 @@ import { Message} from "semantic-ui-react";
 import { AuthConsumer } from "../AuthContext";
 
 const Sukses = () => (
-	<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+	<div style={{ marginTop :50,marginBottom:50, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 		<div style={{ width: '50vw' }}>
 			<AuthConsumer>
 				{({ link }) => (

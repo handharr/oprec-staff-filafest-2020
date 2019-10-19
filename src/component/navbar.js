@@ -23,7 +23,7 @@ export default class Navbar extends Component {
 						<Menu size="massive" style={{ margin: 0, padding: 0, backgroundColor: "#F4F6F8" }} secondary color='violet'>
 							<Menu.Item style={{ padding: 0 }} as={Link} to='./' name="Home"  >
 								{/* <Icon size="large" name='home' /> */}
-								<Image style={{ width: 50, marginLeft : 5 }} src="./img/lotlogofixbackcrop.jpg" />
+								<Image style={{ width: 140,padding:10, marginLeft : 5 }} src="./img/lotfix.png" />
 							</Menu.Item>
 							{isLogged && (
 								<Menu.Menu position="right">
