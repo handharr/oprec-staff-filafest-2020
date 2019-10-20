@@ -9,6 +9,7 @@ import Form from './page/form';
 import { Route, Switch, Redirect } from 'react-router';
 import Navbar from './component/navbar';
 import Sukses from './component/sukses';
+import Predate from './component/predate';
 
 import Footer from './component/footer';
 import Registered from './component/registered';
@@ -66,16 +67,17 @@ class App extends Component {
       <AuthConsumer>
         {({ isLogged }) => (
           <React.Fragment>
-            <Navbar/>
-              {/* <Switch>
+            <Navbar nama="tes"/>
+              <Switch>
                 <Route exact path="/" component={Landing} />
                 <PrivateRoute exact path="/form" component={FormPendaftaran} status={isLogged} />
                 <Route path="/login" component={Login} />
                 <PrivateRoute path="/success" component={Sukses} status={isLogged} />
                 <PrivateRoute path="/notif" component={Notif} status={isLogged} />
                 <PrivateRoute path="/registered" component={Registered} status={isLogged}/>
-              </Switch> */}
-              <FormPendaftaran/>
+                <PrivateRoute path="/closed" component={Predate} status={isLogged}/>
+              </Switch>
+              {/* <FormPendaftaran/> */}
             <Footer/>
           </React.Fragment>
         )}

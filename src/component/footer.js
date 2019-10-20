@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Button, Menu } from "semantic-ui-react";
-import { AuthConsumer } from "../AuthContext";
+// import { Button, Menu } from "semantic-ui-react";
+// import { AuthConsumer } from "../AuthContext";
 
 export default class Navbar extends Component {
 
