@@ -68,7 +68,7 @@ class App extends Component {
         {({ isLogged }) => (
           <React.Fragment>
             <Navbar nama="tes"/>
-              <Switch>
+              {/* <Switch>
                 <Route exact path="/" component={Landing} />
                 <PrivateRoute exact path="/form" component={FormPendaftaran} status={isLogged} />
                 <Route path="/login" component={Login} />
@@ -76,8 +76,8 @@ class App extends Component {
                 <PrivateRoute path="/notif" component={Notif} status={isLogged} />
                 <PrivateRoute path="/registered" component={Registered} status={isLogged}/>
                 <PrivateRoute path="/closed" component={Predate} status={isLogged}/>
-              </Switch>
-              {/* <FormPendaftaran/> */}
+              </Switch> */}
+              <FormPendaftaran/>
             <Footer/>
           </React.Fragment>
         )}

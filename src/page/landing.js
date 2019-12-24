@@ -20,16 +20,16 @@ export default class Landing extends Component {
 								<h1>APA ITU INAUGURASI FILKOM?</h1>
 								<p>Merupakan kegiatan penutup dari seluruh rangkaian kegiatan PK2MABA dan Startup Academy yang dilaksanakan dari, oleh, dan untuk mahasiswa baru. inaugurasi filkom bertujuan untuk melepas status mahasiswa baru menjadi bagian dari KBMFILKOM yang utuh serta kegiatan yang dapat menjadi wadah untuk mengembangkan minat dan bakat mahasiswa baru yang diharap dapat berekspresi dengan sekreatif dan sebaik mungkin, selain itu juga sebagai sarana agar mahasiswa baru saling mengenal satu sama lain dalam lingkup fakultas sehingga diharapkan mampu menciptakan sebuah solidaritas antar mahasiswa baru.</p>
 							</div> */}
-							<Header as='h1' style={{ marginBottom: 0}}>
+							<Header as='h1' style={{ marginBottom: 0 }}>
 								<Icon name='info circle' />
 								<Header.Content>
 									Visi & Misi
       								<Header.Subheader>Visi dan Misi BEM Filkom 2020</Header.Subheader>
 								</Header.Content>
 							</Header>
-							<Grid stackable stretched centered style={{ marginTop: 0}}>
-								<Grid.Row stretched style={{padding:35}}>
-									<Placeholder fluid style={{ textAlign: "justify",padding:14,borderRadius:18 }}>
+							<Grid stackable stretched centered style={{ marginTop: 0 }}>
+								<Grid.Row stretched style={{ padding: 35 }}>
+									<Placeholder fluid style={{ textAlign: "justify", padding: 14, borderRadius: 18 }}>
 										<Placeholder.Paragraph >
 											<Header size="huge" textAlign="center">Visi</Header>
 											<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
@@ -38,43 +38,35 @@ export default class Landing extends Component {
 										</Placeholder.Paragraph>
 									</Placeholder >
 								</Grid.Row>
-								<Grid.Row stretched style={{padding:14}}>
-									<Placeholder fluid  style={{ textAlign: "justify",padding:14, borderRadius:18  }}>
+								<Grid.Row stretched style={{ padding: 14 }}>
+									<Placeholder fluid style={{ textAlign: "justify", padding: 14, borderRadius: 18 }}>
 										<Placeholder.Paragraph>
 											<Header size='huge' textAlign="center">Misi</Header>
-											<List ordered >
-												<List.Item>
-													<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
-														Membangun iklim internal bem filkom ub yang <strong>inklusif</strong> dan <strong>profesional</strong> bernafaskan kekeluargaan.
+											<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
+												1. Membangun iklim internal bem filkom ub yang <strong>inklusif</strong> dan <strong>profesional</strong> bernafaskan kekeluargaan.
 											</p>
-												</List.Item>
-												<List.Item>
-													<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
-														<strong>Bekerja sama</strong> secara <strong>dinamis</strong> dengan seluruh pemangku kepentingan demi terciptanya kreasi jangka panjang dan berkelanjutan.
+
+											<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
+												2. <strong>Bekerja sama</strong> secara <strong>dinamis</strong> dengan seluruh pemangku kepentingan demi terciptanya kreasi jangka panjang dan berkelanjutan.
 											</p>
-												</List.Item>
-												<List.Item>
-													<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
-														<strong>Inisiator pergerakan</strong> mahasiswa yang peka terhadap isu sosial-politik.
+
+											<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
+												3. <strong>Inisiator pergerakan</strong> mahasiswa yang peka terhadap isu sosial-politik.
 											</p>
-												</List.Item>
-												<List.Item>
-													<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
-														Melakukan <strong>pengembangan</strong> kemahasiswaan yang <strong>suportif</strong> dan komprehensif guna tercapainya aktualisasi diri dan prestasi mahasiswa.
+
+											<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
+												4. Melakukan <strong>pengembangan</strong> kemahasiswaan yang <strong>suportif</strong> dan komprehensif guna tercapainya aktualisasi diri dan prestasi mahasiswa.
 											</p>
-												</List.Item>
-												<List.Item>
-													<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
-														Optimalisasi <strong>pelayanan</strong> advokasi <strong>aktif progresif</strong> terkait dengan kebutuhan dan kesejahteraan mahasiswa.
+
+											<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
+												5. Optimalisasi <strong>pelayanan</strong> advokasi <strong>aktif progresif</strong> terkait dengan kebutuhan dan kesejahteraan mahasiswa.
 											</p>
-												</List.Item>
-											</List>
 										</Placeholder.Paragraph>
 									</Placeholder>
 								</Grid.Row>
 							</Grid>
 							<Divider section />
-							<Header as='h1' style={{ marginBottom: 0}}>
+							<Header as='h1' style={{ marginBottom: 0 }}>
 								<Icon name='list alternate' />
 								<Header.Content>
 									Struktur Organisasi
@@ -82,7 +74,7 @@ export default class Landing extends Component {
 								</Header.Content>
 							</Header>
 
-							<Grid centered style={{ marginTop: 5}}>
+							<Grid centered style={{ marginTop: 5 }}>
 								<div style={{ width: "75%" }}>
 									<Image src="./img/strukturkabinet.jpg" />
 								</div>
@@ -143,7 +135,7 @@ export default class Landing extends Component {
 							</Button></center>} */}
 							{/* <br></br> */}
 							<div className="ui middle aligned center aligned container">
-								<p style={{ fontSize: 15, fontWeight: 1500}}><blockquote>"The Time is Always Right to Do What is Right"</blockquote> 
+								<p style={{ fontSize: 15, fontWeight: 1500 }}><blockquote>"The Time is Always Right to Do What is Right"</blockquote>
 									<b>-Martin Luther King Junior-</b></p>
 								<Button
 									animated="vertical"
