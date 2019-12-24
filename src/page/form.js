@@ -4,8 +4,8 @@ import { AuthConsumer } from "../AuthContext";
 // import SemanticDatepicker from 'react-semantic-ui-datepickers';
 import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css';
 
-// const URL = 'http://localhost:5000/api/web/protected/postOprecStaffInau';
-const URL = "https://backend-bem.herokuapp.com/api/web/protected/postOpregLOT2019";
+const URL = 'http://localhost:5000/api/web/protected/postOpenBiddingBem2020';
+// const URL = "https://backend-bem.herokuapp.com/api/web/protected/postOpenBiddingBem2020";
 
 export default class FormPendaftaran extends Component {
 	constructor(props) {
@@ -121,9 +121,9 @@ export default class FormPendaftaran extends Component {
 								this.setState({ loading: true })
 								this.daftar(nama, nim, prodi, token)
 							}}>
-								<Form.Input fluid label="Nama" placeholder="Nama" value={nama} readOnly />
-								<Form.Input fluid label="NIM" placeholder="NIM" value={nim} readOnly />
-								<Form.Input fluid label="Program Studi" placeholder="Program Studi" value={prodi} readOnly />
+								<Form.Input fluid label="Nama" placeholder="Nama" value={nama}  />
+								<Form.Input fluid label="NIM" placeholder="NIM" value={nim}  />
+								<Form.Input fluid label="Program Studi" placeholder="Program Studi" value={prodi}  />
 								<Form.Input required fluid label="Line" onChange={(e) => { this.setState({ idLine: e.target.value }) }} placeholder="ID Line" />
 								<Form.Dropdown clearable required fluid selection options={jabatan} label="Pilihan Pertama" placeholder="Silahkan pilih" onChange={(e,{value}) => { this.setState({ pilihan1: value }) }} />
 								<Form.Dropdown clearable required fluid selection options={jabatan2} label="Pilihan Kedua" placeholder="Silahkan pilih" onChange={(e,{value}) => { this.setState({ pilihan2: value }) }} />
