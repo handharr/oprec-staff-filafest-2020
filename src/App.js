@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import FormPendaftaran from './page/form';
 import './App.css';
-import Login from './page/login';
 import { AuthConsumer } from './AuthContext';
 
+import FormPendaftaran from './page/form';
 import Landing from './page/landing';
-import Form from './page/form';
+import Welcome from './page/welcome';
 import { Route, Switch, Redirect } from 'react-router';
+
 import Navbar from './component/navbar';
 import Sukses from './component/sukses';
 import Predate from './component/predate';
-
 import Footer from './component/footer';
 import Registered from './component/registered';
 import Notif from './component/notif';
+
 // const PrivateRoute = ({ component: Component,status:isLogged,pilih:pilih, ...rest }) => (
 //   <Route {...rest} render={(props) => {
 //     if (pilih===undefined){
@@ -68,16 +68,18 @@ class App extends Component {
         {({ isLogged }) => (
           <React.Fragment>
             <Navbar nama="tes"/>
-              {/* <Switch>
+              <Switch>
                 <Route exact path="/" component={Landing} />
-                <PrivateRoute exact path="/form" component={FormPendaftaran} status={isLogged} />
-                <Route path="/login" component={Login} />
-                <PrivateRoute path="/success" component={Sukses} status={isLogged} />
-                <PrivateRoute path="/notif" component={Notif} status={isLogged} />
-                <PrivateRoute path="/registered" component={Registered} status={isLogged}/>
-                <PrivateRoute path="/closed" component={Predate} status={isLogged}/>
-              </Switch> */}
-              <FormPendaftaran/>
+                <Route exact path="/form" component={FormPendaftaran}/>
+                <Route exact path="/success" component={Sukses}/>
+                <Route exact path="/notif" component={Notif}/>
+                <Route exact path="/registered" component={Registered}/>
+                <Route exact path="/closed" component={Predate}/>
+                <Route exact path="/welcome" component={Welcome}/>
+              </Switch>
+              {/* <FormPendaftaran/> */}
+              {/* <Welcome/> */}
+              {/* <Sukses/> */}
             <Footer/>
           </React.Fragment>
         )}

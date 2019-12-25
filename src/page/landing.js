@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Image, Grid, Container, Divider, Header, Icon, Placeholder, Step, List } from "semantic-ui-react";
+import { Button, Image, Grid, Container, Divider, Header, Icon, Placeholder, Step, List, Segment } from "semantic-ui-react";
 import "./style.scss";
 import { AuthConsumer } from "../AuthContext";
 export default class Landing extends Component {
@@ -27,44 +27,35 @@ export default class Landing extends Component {
       								<Header.Subheader>Visi dan Misi BEM Filkom 2020</Header.Subheader>
 								</Header.Content>
 							</Header>
-							<Grid stackable stretched centered style={{ marginTop: 0 }}>
-								<Grid.Row stretched style={{ padding: 35 }}>
-									<Placeholder fluid style={{ textAlign: "justify", padding: 14, borderRadius: 18 }}>
-										<Placeholder.Paragraph >
-											<Header size="huge" textAlign="center">Visi</Header>
-											<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
-												BEM FILKOM sebagai wadah dalam membangun nilai instrumental mahasiswa yang tepat sasaran demi terciptanya kreasi bermakna bagi FILKOM dan Indonesia
+							<Grid centered style={{marginTop:5}}>
+								<Segment basic style={{ width: "75%", marginBottom: 15 }}>
+									<Header size="huge" textAlign="center">Visi</Header>
+									<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
+										BEM FILKOM sebagai wadah dalam membangun nilai instrumental mahasiswa yang tepat sasaran demi terciptanya kreasi bermakna bagi FILKOM dan Indonesia
 									</p>
-										</Placeholder.Paragraph>
-									</Placeholder >
-								</Grid.Row>
-								<Grid.Row stretched style={{ padding: 14 }}>
-									<Placeholder fluid style={{ textAlign: "justify", padding: 14, borderRadius: 18 }}>
-										<Placeholder.Paragraph>
-											<Header size='huge' textAlign="center">Misi</Header>
-											<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
-												1. Membangun iklim internal bem filkom ub yang <strong>inklusif</strong> dan <strong>profesional</strong> bernafaskan kekeluargaan.
-											</p>
-
-											<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
-												2. <strong>Bekerja sama</strong> secara <strong>dinamis</strong> dengan seluruh pemangku kepentingan demi terciptanya kreasi jangka panjang dan berkelanjutan.
-											</p>
-
-											<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
-												3. <strong>Inisiator pergerakan</strong> mahasiswa yang peka terhadap isu sosial-politik.
-											</p>
-
-											<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
-												4. Melakukan <strong>pengembangan</strong> kemahasiswaan yang <strong>suportif</strong> dan komprehensif guna tercapainya aktualisasi diri dan prestasi mahasiswa.
-											</p>
-
-											<p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
-												5. Optimalisasi <strong>pelayanan</strong> advokasi <strong>aktif progresif</strong> terkait dengan kebutuhan dan kesejahteraan mahasiswa.
-											</p>
-										</Placeholder.Paragraph>
-									</Placeholder>
-								</Grid.Row>
+								</Segment>
+								<Segment basic style={{ width: "75%", marginTop: 0 }}>
+									<Header size='huge' textAlign="center">Misi</Header>
+									<List ordered style={{color:"black"}}>
+										<List.Item as='p' style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify",marginBottom:0 }}>
+												Membangun iklim internal bem filkom ub yang <strong>inklusif</strong> dan <strong>profesional</strong> bernafaskan kekeluargaan.
+										</List.Item>
+										<List.Item as='p' style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify", marginTop:0, marginBottom:0 }}>
+												<strong>Bekerja sama</strong> secara <strong>dinamis</strong> dengan seluruh pemangku kepentingan demi terciptanya kreasi jangka panjang dan berkelanjutan.
+										</List.Item>
+										<List.Item as='p' style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify", marginTop:0, marginBottom:0 }}>
+												<strong>Inisiator pergerakan</strong> mahasiswa yang peka terhadap isu sosial-politik.
+										</List.Item>
+										<List.Item as='p' style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify", marginTop:0, marginBottom:0 }}>
+												Melakukan <strong>pengembangan</strong> kemahasiswaan yang <strong>suportif</strong> dan komprehensif guna tercapainya aktualisasi diri dan prestasi mahasiswa.
+										</List.Item>
+										<List.Item as='p' style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify", marginTop:0 }}>
+												Optimalisasi <strong>pelayanan</strong> advokasi <strong>aktif progresif</strong> terkait dengan kebutuhan dan kesejahteraan mahasiswa.
+										</List.Item>
+									</List>
+								</Segment>
 							</Grid>
+							<br/>
 							<Divider section />
 							<Header as='h1' style={{ marginBottom: 0 }}>
 								<Icon name='list alternate' />
@@ -98,30 +89,28 @@ export default class Landing extends Component {
 								<Step>
 									<Icon color="olive" name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title style={{ fontSize: 14 }}>Tanggal</Step.Title>
-										<Step.Description>18:00 WIB</Step.Description>
+										<Step.Title style={{ fontSize: 16 }}>26 Desember 2019</Step.Title>
 										<Step.Description>Pendaftaran dibuka</Step.Description>
 									</Step.Content>
 								</Step>
 								<Step>
 									<Icon color="red" name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title style={{ fontSize: 14 }}>Tanggal</Step.Title>
-										<Step.Description>24:00 WIB</Step.Description>
+										<Step.Title style={{ fontSize: 16 }}>05 Januari 2020</Step.Title>
 										<Step.Description>Pendaftaran ditutup dan Pengumpulan Berkas</Step.Description>
 									</Step.Content>
 								</Step>
 								<Step>
 									<Icon color="blue" name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title style={{ fontSize: 14 }}>Tanggal</Step.Title>
-										<Step.Description>Open Bidding Wawancara</Step.Description>
+										<Step.Title style={{ fontSize: 16 }}>6-18 Januari 2020</Step.Title>
+										<Step.Description>Interview</Step.Description>
 									</Step.Content>
 								</Step>
 								<Step>
 									<Icon color="green" name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title style={{ fontSize: 14 }}>Tanggal</Step.Title>
+										<Step.Title style={{ fontSize: 16 }}>22 Januari 2020</Step.Title>
 										<Step.Description>Pengumuman</Step.Description>
 									</Step.Content>
 								</Step>
@@ -135,18 +124,15 @@ export default class Landing extends Component {
 							</Button></center>} */}
 							{/* <br></br> */}
 							<div className="ui middle aligned center aligned container">
-								<p style={{ fontSize: 15, fontWeight: 1500 }}><blockquote>"The Time is Always Right to Do What is Right"</blockquote>
-									<b>-Martin Luther King Junior-</b></p>
+
 								<Button
-									animated="vertical"
 									size="big"
 									positive
 									centered
 									onClick={async () => {
-										this.props.history.replace("/login");
+										this.props.history.replace("/welcome");
 									}}>
 									<Button.Content visible>Daftar</Button.Content>
-									<Button.Content hidden>Login</Button.Content>
 								</Button>
 							</div>
 							<Divider hidden />
