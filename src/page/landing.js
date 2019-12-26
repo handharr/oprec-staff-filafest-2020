@@ -85,7 +85,7 @@ export default class Landing extends Component {
 							>
 								<Button.Content visible><a href="http://bit.ly/ProsedurOprecStaff" target="_blank" style={{ 'color': 'white' }}>Baca Prosedurnya!</a></Button.Content>
 							</Button></center> */}
-							<Step.Group widths={4}>
+							<Step.Group widths={5}>
 								<Step>
 									<Icon color="olive" name='calendar alternate outline' />
 									<Step.Content>
@@ -98,6 +98,13 @@ export default class Landing extends Component {
 									<Step.Content>
 										<Step.Title style={{ fontSize: 16 }}>04 Januari 2020</Step.Title>
 										<Step.Description>Pendaftaran ditutup dan Pengumpulan Berkas</Step.Description>
+									</Step.Content>
+								</Step>
+								<Step>
+									<Icon color="red" name='calendar alternate outline' />
+									<Step.Content>
+										<Step.Title style={{ fontSize: 16 }}>05 Januari 2020</Step.Title>
+										<Step.Description>Deadline Pengumpulan Berkas</Step.Description>
 									</Step.Content>
 								</Step>
 								<Step>
