@@ -76,7 +76,7 @@ export default class Landing extends Component {
 								<Icon name='time' />
 								<Header.Content >
 									Timeline Open Bidding BPH
-      								<Header.Subheader>Rangkaian kegiatan Opten BPH BEM Filkom 2020</Header.Subheader>
+      								<Header.Subheader>Rangkaian kegiatan Open Bidding BPH BEM Filkom 2020</Header.Subheader>
 								</Header.Content>
 							</Header>
 							{/* <center><Button className="center"
