@@ -16,13 +16,13 @@ export default class Navbar extends Component {
 		// const { activeItem } = this.state;
 
 		return (
-			<AuthConsumer>
-				{({ isLogged, logout }) => (
+			// <AuthConsumer>
+			// 	{({ isLogged, logout }) => (
 					<React.Fragment>
 						<Menu size="massive" style={{ margin: 0, padding: 0, backgroundColor: "white" }} secondary color='violet'>
 							<Menu.Item style={{ padding: 0 }} as={Link} to='./' name="Home"  >
-								{/* <Icon size="large" name='home' /> */}
 								<Image style={{width: 35, marginLeft:15}} src="./img/humcrop.png" />
+								{this.props.history}
 							</Menu.Item>
 							{/* {isLogged && ( */}
 								{/* <Menu.Menu position="right"> */}
@@ -41,8 +41,8 @@ export default class Navbar extends Component {
 							{/* )}  */}
 						</Menu>
 					</React.Fragment>
-				)}
-			</AuthConsumer>
+			// 	)}
+			// </AuthConsumer>
 		);
 	}
 }

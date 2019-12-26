@@ -96,7 +96,7 @@ export default class Landing extends Component {
 								<Step>
 									<Icon color="red" name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title style={{ fontSize: 16 }}>05 Januari 2020</Step.Title>
+										<Step.Title style={{ fontSize: 16 }}>04 Januari 2020</Step.Title>
 										<Step.Description>Pendaftaran ditutup dan Pengumpulan Berkas</Step.Description>
 									</Step.Content>
 								</Step>

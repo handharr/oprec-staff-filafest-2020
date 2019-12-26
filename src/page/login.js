@@ -50,7 +50,7 @@ export default class Login extends Component {
 														this.setState({ loading: false });
 													} else {
 														// const URL = 'http://localhost:5000/api/web/protected/checkOprecStaffInau';
-														const URL = 'https://backend-bem.herokuapp.com/api/web/protected/checkOpregLOT2019';
+														const URL = 'https://backend-bem.herokuapp.com/api/web/public/checkOpenBiddingBem2020';
 														const body = {
 															nim: this.state.nim
 														}

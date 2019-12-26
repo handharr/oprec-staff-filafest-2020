@@ -9,7 +9,7 @@ const Sukses = () => (
 				{({ link }) => (
 					<Message success>
 						<h1>Terimakasih telah mendaftar! Kami tunggu kontribusi dan ide terbaik anak muda FILKOM Brawijaya!</h1>
-						<h4 style={{ textAlign: "center"}}>Jangan lupa download Link Berkas Open Bidding yang tertera di bawah ini:</h4>
+						<h4 style={{ textAlign: "center", color:"red"}}>Jangan lupa download Link Berkas Open Bidding yang tertera di bawah ini:</h4>
 						{<center>
 							<Button className="center"
 								primary

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Form, Button, Header, Input } from "semantic-ui-react";
+import { Form, Button, Header, Input, Message } from "semantic-ui-react";
 import { AuthConsumer } from "../AuthContext";
 // import SemanticDatepicker from 'react-semantic-ui-datepickers';
 import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css';
 
 // const URL = 'http://localhost:5000/api/web/protected/postOpenBiddingBem2020';
-const URL = "https://backend-bem.herokuapp.com/api/web/protected/postOpenBiddingBem2020";
+const URL = "https://backend-bem.herokuapp.com/api/web/public/postOpenBiddingBem2020";
 
 export default class FormPendaftaran extends Component {
 	constructor(props) {
@@ -18,12 +18,13 @@ export default class FormPendaftaran extends Component {
 			pilihan1: "",
 			pilihan2: "",
 			loading: false,
+			messagenim: false,
 		};
 	}
 
 	handleChange = (e, { value }) => this.setState({ value });
 
-	daftar = async () => {
+	postDaftar = async () => {
 		const body = {
 			nim: this.state.nim,
 			nama: this.state.nama,
@@ -32,7 +33,6 @@ export default class FormPendaftaran extends Component {
 			pilihan1: this.state.pilihan1,
 			pilihan2: this.state.pilihan2
 		};
-		console.log(body);
 		await fetch(URL, {
 			method: "POST",
 			headers: {
@@ -53,6 +53,39 @@ export default class FormPendaftaran extends Component {
 				// console.log(ress)
 				this.props.history.replace("/success");
 			});
+	}
+
+	daftar = async () => {
+			var nm = this.state.nim;
+			var cek1 = nm.substring(0, 2) == "17";
+			var cek2 = nm.substring(0, 2) == "18";
+			var cek3 = nm.substring(3, 6) == "150";
+		if (this.state.nim.length == 15 && (nm.includes('e')===false) && ( cek1 || cek2) && cek3 ) {
+			const URL1 = 'https://backend-bem.herokuapp.com/api/web/public/checkOpenBiddingBem2020';
+			const body = {
+				nim: this.state.nim
+			}
+			const res = fetch(URL1, {
+				method: "POST",
+				headers: {
+					"content-type": "application/json"
+				},
+				body: JSON.stringify(body)
+			}).then(ress => {
+				console.log(ress);
+				return ress.json()
+			}).then(resss => {
+				console.log(resss);
+				if (resss.status === true) {
+					this.props.history.replace("/success");
+				} else {
+					this.postDaftar();
+				}
+			})
+		} else {
+			this.setState({ loading: false });
+			this.setState({ messagenim: true });
+		}
 	};
 
 	render() {
@@ -142,6 +175,14 @@ export default class FormPendaftaran extends Component {
 							</Button>
 						)}
 					</Form>
+					{this.state.messagenim === true && (
+						<Message
+							style={{ marginBottom: 20, marginTop: 20 }}
+							error
+							header='Nim tidak tepat!'
+							content='Silahkan isi form kembali, dan input nim dengan benar'
+						/>
+					)}
 				</div>
 			</div>
 		);
