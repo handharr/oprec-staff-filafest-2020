@@ -6,7 +6,7 @@ export default class Welcome extends Component {
         return (
             <Grid columns={2} containers stackable stretched style={{ marginTop: 0 }}>
                 <Grid.Column style={{ }}>
-                    <Image centered style={{ borderRadius: 2.5, width:"70%"}} src="./img/cropposter.png" />
+                    <Image centered style={{ borderRadius: 2.5, width:"70%"}} src="./img/cropposterfix.png" />
                 </Grid.Column>
                 <Grid.Column verticalAlign="middle">
                     <Header as='h1' style={{ marginBottom: 5 }}>
