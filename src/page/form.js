@@ -120,7 +120,7 @@ export default class FormPendaftaran extends Component {
 						<div style={{ width: '50vw' }}>
 							<Form onSubmit={() => {
 								this.setState({ loading: true })
-								this.daftar()
+								this.daftar(nama, nim, prodi, token)
 							}}>
 								<Form.Input fluid label="Nama" placeholder="Nama" value={nama} readOnly  />
 								<Form.Input fluid label="NIM" placeholder="NIM" value={nim}  readOnly/>
