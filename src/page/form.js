@@ -99,8 +99,8 @@ export default class FormPendaftaran extends Component {
 		// 	this.props.history.replace('/closed')
 		// }
 		const jabatan = [
-			{ key: 0, value: null, text: 'Pusat Jaminan Mutu Organisasi (PJMO)', disabled: true },
-			{ key: 1, value: 'PJMO', text: 'PJMO' },
+			{ key: 0, value: null, text: 'Pengembangan Sumber Daya Internal (PSDI)', disabled: true },
+			{ key: 1, value: 'PSDI', text: 'PSDI' },
 			{ key: 2, value: null, text: 'Pengembangan Sumber Daya Manusia (PSDM)', disabled: true },
 			{ key: 3, value: 'Menteri PSDM', text: 'Menteri PSDM' },
 			{ key: 4, value: 'Dirjen Kaderisasi', text: 'Dirjen Kaderisasi' },
@@ -131,15 +131,16 @@ export default class FormPendaftaran extends Component {
 			{ key: 29, value: 'Wakabiro Bismit', text: 'Wakil Kepala Biro Bismit' },
 			{ key: 30, value: null, text: 'Biro Administrasi Keseketariatan dan Keuangan (Adkeu)', disabled: true },
 			{ key: 31, value: 'Kabiro Adkeu', text: 'Kepala Biro Adkeu' },
-			{ key: 32, value: 'Wakabiro Adkeu', text: 'Wakil Kepala Biro Adkeu' },
-			{ key: 33, value: null, text: 'Biro Media Kreatif dan Informasi', disabled: true },
-			{ key: 34, value: 'Kabiro Media Kreatif dan Informasi', text: 'Kepala Biro Media Kreatif dan Informasi' },
-			{ key: 35, value: 'Kabag Medkraf', text: 'Kepala Bagian Media Kreatif' },
-			{ key: 36, value: 'Kabag Medinfo', text: 'Kepala Bagian Media Informasi' },
+			{ key: 32, value: 'Kabag Adkest', text: 'Kepala Bagian Administrasi Kesekretariatan' },
+			{ key: 33, value: 'Kabag Adkeu', text: 'Kepala Bagian Administrasi Keuangan' },
+			{ key: 34, value: null, text: 'Biro Media Kreatif dan Informasi', disabled: true },
+			{ key: 35, value: 'Kabiro Media Kreatif dan Informasi', text: 'Kepala Biro Media Kreatif dan Informasi' },
+			{ key: 36, value: 'Kabag Medkraf', text: 'Kepala Bagian Media Kreatif' },
+			{ key: 37, value: 'Kabag Medinfo', text: 'Kepala Bagian Media Informasi' },
 		]
 
 		const jabatan2 = [
-			{ key: 37, value: 'Tidak Memilih', text: '--Tidak Memilih--' },
+			{ key: 38, value: 'Tidak Memilih', text: '--Tidak Memilih--' },
 			...jabatan,
 		]
 
