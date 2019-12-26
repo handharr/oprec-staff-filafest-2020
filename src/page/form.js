@@ -89,12 +89,12 @@ export default class FormPendaftaran extends Component {
 	};
 
 	render() {
-		var batas = new Date("2019-11-02T24:00:00+07:00");
+		var batas = new Date("2020-01-04T24:00:00+07:00");
 		var pembukaan = new Date("2019-10-21T18:00:00+07:00");
 		var sekarang = new Date();
-		// if (batas < sekarang) {
-		// 	this.props.history.replace('/registered');
-		// }
+		if (batas < sekarang) {
+			this.props.history.replace('/registered');
+		}
 		// if (pembukaan > sekarang) {
 		// 	this.props.history.replace('/closed')
 		// }
@@ -145,7 +145,7 @@ export default class FormPendaftaran extends Component {
 
 		return (
 			<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '3vw' }}>
-				<Header textAlign="center" as='h1' content='Form Pendaftaran' />
+				<Header textAlign="center" as='h1' content='Form Pendaftaran Online' />
 				<div style={{ width: '50vw' }}>
 					<Form onSubmit={() => {
 						this.setState({ loading: true })
