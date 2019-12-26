@@ -89,35 +89,35 @@ export default class Landing extends Component {
 								<Step>
 									<Icon color="olive" name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title style={{ fontSize: 16 }}>26 Desember 2019</Step.Title>
+										<Step.Title style={{ fontSize: 14 }}>26 Desember 2019</Step.Title>
 										<Step.Description>Pendaftaran dibuka</Step.Description>
 									</Step.Content>
 								</Step>
 								<Step>
 									<Icon color="red" name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title style={{ fontSize: 16 }}>04 Januari 2020</Step.Title>
+										<Step.Title style={{ fontSize: 14 }}>04 Januari 2020</Step.Title>
 										<Step.Description>Pendaftaran ditutup dan Pengumpulan Berkas</Step.Description>
 									</Step.Content>
 								</Step>
 								<Step>
 									<Icon color="red" name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title style={{ fontSize: 16 }}>05 Januari 2020</Step.Title>
+										<Step.Title style={{ fontSize: 14 }}>05 Januari 2020</Step.Title>
 										<Step.Description>Deadline Pengumpulan Berkas</Step.Description>
 									</Step.Content>
 								</Step>
 								<Step>
 									<Icon color="blue" name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title style={{ fontSize: 16 }}>6-18 Januari 2020</Step.Title>
+										<Step.Title style={{ fontSize: 14 }}>6-18 Januari 2020</Step.Title>
 										<Step.Description>Interview</Step.Description>
 									</Step.Content>
 								</Step>
 								<Step>
 									<Icon color="green" name='calendar alternate outline' />
 									<Step.Content>
-										<Step.Title style={{ fontSize: 16 }}>22 Januari 2020</Step.Title>
+										<Step.Title style={{ fontSize: 14 }}>22 Januari 2020</Step.Title>
 										<Step.Description>Pengumuman</Step.Description>
 									</Step.Content>
 								</Step>
