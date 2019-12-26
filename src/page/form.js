@@ -5,7 +5,7 @@ import { AuthConsumer } from "../AuthContext";
 import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css';
 
 // const URL = 'http://localhost:5000/api/web/protected/postOpenBiddingBem2020';
-const URL = "https://backend-bem.herokuapp.com/api/web/public/postOpenBiddingBem2020";
+const URL = "https://backend-bem.herokuapp.com/api/web/protected/postOpenBiddingBem2020";
 
 export default class FormPendaftaran extends Component {
 	constructor(props) {
@@ -18,17 +18,16 @@ export default class FormPendaftaran extends Component {
 			pilihan1: "",
 			pilihan2: "",
 			loading: false,
-			messagenim: false,
 		};
 	}
 
 	handleChange = (e, { value }) => this.setState({ value });
 
-	postDaftar = async () => {
+	daftar = async (nama, nim, prodi, token) => {
 		const body = {
-			nim: this.state.nim,
-			nama: this.state.nama,
-			prodi: this.state.prodi,
+			nim: nim,
+			nama: nama,
+			prodi: prodi,
 			idLine: this.state.idLine,
 			pilihan1: this.state.pilihan1,
 			pilihan2: this.state.pilihan2
@@ -37,6 +36,7 @@ export default class FormPendaftaran extends Component {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",
+				"authorization": "bearer " + token
 			},
 			body: JSON.stringify(body)
 		})
@@ -53,39 +53,7 @@ export default class FormPendaftaran extends Component {
 				// console.log(ress)
 				this.props.history.replace("/success");
 			});
-	}
 
-	daftar = async () => {
-			var nm = this.state.nim;
-			var cek1 = nm.substring(0, 2) == "17";
-			var cek2 = nm.substring(0, 2) == "18";
-			var cek3 = nm.substring(3, 6) == "150";
-		if (this.state.nim.length == 15 && (nm.includes('e')===false) && ( cek1 || cek2) && cek3 ) {
-			const URL1 = 'https://backend-bem.herokuapp.com/api/web/public/checkOpenBiddingBem2020';
-			const body = {
-				nim: this.state.nim
-			}
-			const res = fetch(URL1, {
-				method: "POST",
-				headers: {
-					"content-type": "application/json"
-				},
-				body: JSON.stringify(body)
-			}).then(ress => {
-				console.log(ress);
-				return ress.json()
-			}).then(resss => {
-				console.log(resss);
-				if (resss.status === true) {
-					this.props.history.replace("/success");
-				} else {
-					this.postDaftar();
-				}
-			})
-		} else {
-			this.setState({ loading: false });
-			this.setState({ messagenim: true });
-		}
 	};
 
 	render() {
@@ -145,47 +113,43 @@ export default class FormPendaftaran extends Component {
 		]
 
 		return (
-			<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '3vw' }}>
-				<Header textAlign="center" as='h1' content='Form Pendaftaran Online' />
-				<div style={{ width: '50vw' }}>
-					<Form onSubmit={() => {
-						this.setState({ loading: true })
-						this.daftar()
-					}}>
-						<Form.Input fluid required label="Nama" placeholder="Nama" onChange={(e) => { this.setState({ nama: e.target.value }) }} />
-						<Form.Input fluid type="number" required label="NIM" placeholder="NIM" onChange={(e) => { this.setState({ nim: e.target.value }) }} />
-						<Form.Input fluid required label="Program Studi" placeholder="Program Studi" onChange={(e) => { this.setState({ prodi: e.target.value }) }} />
-						<Form.Input required fluid label="Line" onChange={(e) => { this.setState({ idLine: e.target.value }) }} placeholder="ID Line" />
-						<Form.Dropdown clearable required fluid selection options={jabatan} label="Pilihan Pertama" placeholder="Silahkan pilih" onChange={(e, { value }) => { this.setState({ pilihan1: value }) }} />
-						<Form.Dropdown clearable required fluid selection options={jabatan2} label="Pilihan Kedua" placeholder="Silahkan pilih" onChange={(e, { value }) => { this.setState({ pilihan2: value }) }} />
-						{this.state.loading === false && (
-							<Button
-								color="blue"
-								fluid
-							// onClick={() => {
-							// 	this.setState({loading: true});
-							// 	// this.daftar(nama, nim, prodi);
-							// }}
-							>
-								Submit
+			<AuthConsumer>
+				{({ nama, nim, prodi, token }) => (
+					<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '3vw' }}>
+						<Header textAlign="center" as='h1' content='Form Pendaftaran Online' />
+						<div style={{ width: '50vw' }}>
+							<Form onSubmit={() => {
+								this.setState({ loading: true })
+								this.daftar()
+							}}>
+								<Form.Input fluid label="Nama" placeholder="Nama" value={nama} readOnly  />
+								<Form.Input fluid label="NIM" placeholder="NIM" value={nim}  readOnly/>
+								<Form.Input fluid label="Program Studi" placeholder="Program Studi" value={prodi} readOnly  />
+								<Form.Input required fluid label="Line" onChange={(e) => { this.setState({ idLine: e.target.value }) }} placeholder="ID Line" />
+								<Form.Dropdown clearable required fluid selection options={jabatan} label="Pilihan Pertama" placeholder="Silahkan pilih" onChange={(e, { value }) => { this.setState({ pilihan1: value }) }} />
+								<Form.Dropdown clearable required fluid selection options={jabatan2} label="Pilihan Kedua" placeholder="Silahkan pilih" onChange={(e, { value }) => { this.setState({ pilihan2: value }) }} />
+								{this.state.loading === false && (
+									<Button
+										color="blue"
+										fluid
+									// onClick={() => {
+									// 	this.setState({loading: true});
+									// 	// this.daftar(nama, nim, prodi);
+									// }}
+									>
+										Submit
 							</Button>
-						)}
-						{this.state.loading === true && (
-							<Button color="blue" loading fluid>
-								Login
+								)}
+								{this.state.loading === true && (
+									<Button color="blue" loading fluid>
+										Login
 							</Button>
-						)}
-					</Form>
-					{this.state.messagenim === true && (
-						<Message
-							style={{ marginBottom: 20, marginTop: 20 }}
-							error
-							header='Nim tidak tepat!'
-							content='Silahkan isi form kembali, dan input nim dengan benar'
-						/>
-					)}
-				</div>
-			</div>
+								)}
+							</Form>
+						</div>
+					</div>
+				)}
+			</AuthConsumer>
 		);
 	}
 }

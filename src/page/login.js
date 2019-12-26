@@ -41,7 +41,10 @@ export default class Login extends Component {
 										onClick={async () => {
 											this.setState({ loading: true });
 											//cek nim
-											if (this.state.nim.length == 15) {
+											var nm = this.state.nim;
+											var cek1 = nm.substring(0, 2) == "17";
+											var cek2 = nm.substring(0, 2) == "18";
+											if (this.state.nim.length == 15 && (cek1 || cek2)) {
 												await login(this.state.nim, this.state.password).then(ress => {
 													let a = ress;
 													console.log(ress);
@@ -50,7 +53,7 @@ export default class Login extends Component {
 														this.setState({ loading: false });
 													} else {
 														// const URL = 'http://localhost:5000/api/web/protected/checkOprecStaffInau';
-														const URL = 'https://backend-bem.herokuapp.com/api/web/public/checkOpenBiddingBem2020';
+														const URL = 'https://backend-bem.herokuapp.com/api/web/protected/checkOpenBiddingBem2020';
 														const body = {
 															nim: this.state.nim
 														}

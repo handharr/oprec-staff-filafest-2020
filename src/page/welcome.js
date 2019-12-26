@@ -5,8 +5,8 @@ export default class Welcome extends Component {
     render() {
         return (
             <Grid columns={2} containers stackable stretched style={{ marginTop: 0 }}>
-                <Grid.Column style={{ }}>
-                    <Image centered style={{ borderRadius: 2.5, width:"70%"}} src="./img/cropposterfix.png" />
+                <Grid.Column style={{}}>
+                    <Image centered style={{ borderRadius: 2.5, width: "70%" }} src="./img/cropposterfix.png" />
                 </Grid.Column>
                 <Grid.Column verticalAlign="middle">
                     <Header as='h1' style={{ marginBottom: 5 }}>
@@ -16,11 +16,11 @@ export default class Welcome extends Component {
                     </Header>
                     <Segment basic>
                         <p style={{ color: "#333", fontSize: 18, fontWeight: 400 }}>
-                                Perihal waktu yang tidak pernah berhenti, Perjuangan ini akan segera dimulai. 
-                            Tentunya bukan perjalanan yang singkat untuk menuju kemantapan hati. 
-                            Gundah hati serta tensi tinggi pasti selalu menghantui tiap insan yang peduli. 
-                            Hingga pada akhirnya, mengambil peran adalah pilihan kami. 
-                            Sudah siap ambil peranmu ?
+                            Perihal waktu yang tidak pernah berhenti, Perjuangan ini akan segera dimulai.
+                        Tentunya bukan perjalanan yang singkat untuk menuju kemantapan hati.
+                        Gundah hati serta tensi tinggi pasti selalu menghantui tiap insan yang peduli.
+                        Hingga pada akhirnya, mengambil peran adalah pilihan kami.
+                        Sudah siap ambil peranmu ?
                         </p>
                         <p style={{ textAlign: "center", fontSize: 15, fontWeight: 1500 }}><blockquote>"The Time is Always Right to Do What is Right"</blockquote>
                             <b>-Martin Luther King Junior-</b></p>
@@ -32,9 +32,9 @@ export default class Welcome extends Component {
                                 size="large"
                                 style={{ marginBottom: 20, backgroundColor: "#ffd54f", color: "#1B1E83" }}
                                 onClick={async () => {
-                                    this.props.history.replace("/form");
+                                    this.props.history.replace("/login");
                                 }}>
-                                Isi Form Online
+                                <Button.Content visible>Daftar Sekarang</Button.Content>
                             </Button>
                             <Button
                                 size="large"
@@ -42,7 +42,7 @@ export default class Welcome extends Component {
                                 onClick={async () => {
                                     this.props.history.replace("/");
                                 }}>
-                                Kembali ke Halaman Utama
+                                <Button.Content visible>Kembali ke Halaman Utama</Button.Content>
                             </Button>
                         </Segment>
                     </Segment>
