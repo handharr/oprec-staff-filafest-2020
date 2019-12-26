@@ -22,7 +22,6 @@ export default class Navbar extends Component {
 						<Menu size="massive" style={{ margin: 0, padding: 0, backgroundColor: "white" }} secondary color='violet'>
 							<Menu.Item style={{ padding: 0 }} as={Link} to='./' name="Home"  >
 								<Image style={{width: 35, marginLeft:15}} src="./img/humcrop.png" />
-								{this.props.history}
 							</Menu.Item>
 							{/* {isLogged && ( */}
 								{/* <Menu.Menu position="right"> */}
