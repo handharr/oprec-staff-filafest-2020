@@ -44,7 +44,8 @@ export default class Login extends Component {
 											var nm = this.state.nim;
 											var cek1 = nm.substring(0, 2) == "17";
 											var cek2 = nm.substring(0, 2) == "18";
-											if (this.state.nim.length == 15 && (cek1 || cek2)) {
+											var cek3 = nm.substring(3,6) == "150";
+											if (this.state.nim.length == 15 && (cek1 || cek2)&& cek3) {
 												await login(this.state.nim, this.state.password).then(ress => {
 													let a = ress;
 													console.log(ress);
