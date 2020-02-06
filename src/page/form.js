@@ -14,9 +14,17 @@ export default class FormPendaftaran extends Component {
 			nim: "",
 			nama: "",
 			prodi: "",
+			ttl : "",
+			alamatAsal : "",
+			alamatTinggal : "",
+			noHp : "",
 			idLine: "",
+			email : "",
+			mottoHidup : "",
 			pilihan1: "",
+			alasanMemilih1 : "",
 			pilihan2: "",
+			alasanMemilih2 : "",
 			loading: false,
 		};
 	}
@@ -28,9 +36,17 @@ export default class FormPendaftaran extends Component {
 			nim: nim,
 			nama: nama,
 			prodi: prodi,
+			ttl : this.state.ttl,
+			alamatAsal : this.state.alamatAsal,
+			alamatTinggal : this.state.alamatTinggal,
+			noHp : this.state.noHp,
 			idLine: this.state.idLine,
+			email : this.state.email,
+			mottoHidup : this.state.mottoHidup,
 			pilihan1: this.state.pilihan1,
-			pilihan2: this.state.pilihan2
+			alasanMemilih1 : this.state.alasanMemilih1,
+			pilihan2: this.state.pilihan2,
+			alasanMemilih2 : this.state.alasanMemilih2
 		};
 		await fetch(URL, {
 			method: "POST",
@@ -125,9 +141,17 @@ export default class FormPendaftaran extends Component {
 								<Form.Input fluid label="Nama" placeholder="Nama" value={nama} readOnly  />
 								<Form.Input fluid label="NIM" placeholder="NIM" value={nim}  readOnly/>
 								<Form.Input fluid label="Program Studi" placeholder="Program Studi" value={prodi} readOnly  />
+								<Form.Input required fluid label="Line" onChange={(e) => { this.setState({ ttl: e.target.value }) }} placeholder="TTL" />
+								<Form.Input required fluid label="Line" onChange={(e) => { this.setState({ alamatAsal: e.target.value }) }} placeholder="Alamat Asal" />
+								<Form.Input required fluid label="Line" onChange={(e) => { this.setState({ alamatTinggal: e.target.value }) }} placeholder="Alamat Tinggal" />
+								<Form.Input required fluid label="Line" onChange={(e) => { this.setState({ noHp: e.target.value }) }} placeholder="No HP" />
 								<Form.Input required fluid label="Line" onChange={(e) => { this.setState({ idLine: e.target.value }) }} placeholder="ID Line" />
+								<Form.Input required fluid label="Line" onChange={(e) => { this.setState({ email: e.target.value }) }} placeholder="Email" />
+								<Form.Input required fluid label="Line" onChange={(e) => { this.setState({ mottoHidup: e.target.value }) }} placeholder="Motto Hidup" />
 								<Form.Dropdown clearable required fluid selection options={jabatan} label="Pilihan Pertama" placeholder="Silahkan pilih" onChange={(e, { value }) => { this.setState({ pilihan1: value }) }} />
+								<Form.Input required fluid label="Line" onChange={(e) => { this.setState({ alasanMemilih1: e.target.value }) }} placeholder="Alasan Memilih" />
 								<Form.Dropdown clearable required fluid selection options={jabatan2} label="Pilihan Kedua" placeholder="Silahkan pilih" onChange={(e, { value }) => { this.setState({ pilihan2: value }) }} />
+								<Form.Input required fluid label="Line" onChange={(e) => { this.setState({ alasanMemilih2: e.target.value }) }} placeholder="Alasan Memilih" />
 								{this.state.loading === false && (
 									<Button
 										color="blue"
