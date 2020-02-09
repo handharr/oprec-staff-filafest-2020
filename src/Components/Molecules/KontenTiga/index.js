@@ -1,0 +1,1 @@
+export { KontenTiga } from './KontenTiga';

@@ -1,0 +1,1 @@
+export { KontenDua } from './KontenDua';
