@@ -14,7 +14,6 @@ class LoginPage extends Component {
 			message: false
 		};
 	}
-
 	render() {
 		return (
 			<React.Fragment>
@@ -40,15 +39,15 @@ class LoginPage extends Component {
 									onClick={async () => {
 										this.setState({ loading: true });
 										//cek nim
-										// var nm = this.state.nim;
-										// var cek1 = nm.substring(0, 2) === "17";
-										// var cek2 = nm.substring(0, 2) === "18";
-										// var cek3 = nm.substring(3, 6) === "150";
+										var nm = this.state.nim;
+										var cek1 = nm.substring(0, 2) === "19";
+										var cek2 = nm.substring(0, 2) === "18";
+										var cek3 = nm.substring(3, 6) === "150";
 										//&& (cek1 || cek2) && cek3
-										if (this.state.nim.length === 15 ) {
+										if (this.state.nim.length === 15 && cek3 && (cek1 || cek2) ) {
 											await this.props.login(this.state.nim, this.state.password).then(ress => {
 												let a = ress;
-												console.log(ress);
+												// console.log(ress);
 												if (!a.status) {
 													this.setState({ message: true });
 													this.setState({ loading: false });
@@ -73,7 +72,7 @@ class LoginPage extends Component {
 															this.setState({ loading: false });
 															if (resss.value === null) {
 																this.props.setLoading(false);
-																this.props.history.replace("/success");
+																this.props.history.replace("/terdaftar");
 															} else {
 																this.props.setLoading(false);
 																this.props.history.replace("/notif");
@@ -82,8 +81,8 @@ class LoginPage extends Component {
 															this.props.setLoading(false);
 														}
 													}).catch(err => {
-														// alert('Request Time Out. Try Again!')
-														console.log(err)
+														alert('Request Time Out. Try Again!')
+														// console.log(err)
 													})
 													this.setState({ loading: false });
 													this.props.history.replace("/form");
@@ -122,13 +121,10 @@ class LoginPage extends Component {
 							content='Silahkan Login Kembali!'
 						/>
 					)}
-
 				</div>
-				)}
 			</React.Fragment>
 
 		);
 	}
 }
-
 export default GlobalConsumer(LoginPage);

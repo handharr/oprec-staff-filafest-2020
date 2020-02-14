@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, Grid, Segment, Header, Form } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import { PengantarKanan, PengantarKiri } from '../../../Components/Molecules';
 
 export default class Pengantar extends Component {
@@ -19,12 +19,15 @@ export default class Pengantar extends Component {
     
     checkboxChangeHandler = (data) => {
         this.setState({ checked : !this.state.checked });
-        console.log(this.state.checked); // It is giving undefined here
       };
+
+      componentDidMount() {
+        window.scrollTo(0, 0)
+      }
 
     render() {
         return (
-            <Grid columns={2} containers stackable stretched style={{ marginTop: 0 }}>
+            <Grid columns={2} containers stackable style={{ marginTop: 0 }}>
                 <PengantarKiri/>
                 <PengantarKanan submit={this.onSubmitHandler} checked = {this.state.checked} handler={this.checkboxChangeHandler} />
             </Grid>

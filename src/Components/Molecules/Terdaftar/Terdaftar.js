@@ -5,17 +5,22 @@ import { GlobalConsumer } from '../../../Config';
 export const Terdaftar = () => (
 	<div style={{ marginTop: 50, marginBottom: 50, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 		<div style={{ width: '50vw' }}>
-			<Message success>
-				<h1>Terimakasih telah mendaftar! Kami tunggu kontribusi dan ide terbaik anak muda FILKOM Brawijaya!</h1>
-				<h4 style={{ textAlign: "center", color: "red" }}>Jangan lupa download Link Berkas Open Bidding yang tertera di bawah ini:</h4>
+			<Message>
+				<br />
+				<h1 style={{ textAlign: 'center', color: '#1897D4' }}>Terimakasih telah mendaftar!</h1>
+				<h4 style={{ color: '#192452', textAlign: 'center' }}>Nantikan pengumuman lebih lanjut mengenai jadwal interview dan FGD. Dan jangan lupa untuk upload twibbonmu yang dapat kalian temukan disini</h4>
 				{<center>
-					<Button className="center"
-						primary
-						centered
-					>
-						<Button.Content visible><a href="http://bit.ly/BerkasOpenBiddingBEMFILKOMUB2020" target="_blank" style={{ 'color': 'white' }}>Download Berkas Offline</a></Button.Content>
+					<a href="https://drive.google.com/drive/folders/1q-6B779LoU9H8c7679Xomfyt7vaTD8Fq?usp=sharing" target="_blank" style={{ 'color': 'white' }}>
+						<Button className="center"
+							primary
+							centered
+						>
+							Download Twibbon
 					</Button>
+					</a>
 				</center>}
+				<h4 style={{ textAlign: 'center', color: '#192452' }}>All the best for you!!</h4>
+				<br />
 			</Message>
 		</div>
 	</div>

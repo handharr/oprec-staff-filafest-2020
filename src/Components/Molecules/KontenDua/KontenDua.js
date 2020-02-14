@@ -14,7 +14,7 @@ export const KontenDua = () => {
 
             <Grid centered style={{ marginTop: 5 }}>
                 <div style={{ width: "75%" }}>
-                    <Image src="./img/strukturkabinet.jpg" />
+                    <Image src="./img/strukturkabinet1-min.jpg" />
                 </div>
             </Grid>
         </React.Fragment>

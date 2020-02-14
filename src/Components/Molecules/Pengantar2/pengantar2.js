@@ -1,6 +1,9 @@
 import React from 'react';
 
-import { Grid, Segment, Header, Form } from "semantic-ui-react";
+import { Grid, Segment, Header, Form, Icon, Step, Popup, Checkbox, Button } from "semantic-ui-react";
+import { LinkButton, Puisi } from '../../Molecules';
+import { HeaderContent } from '../../Atoms';
+
 
 const PengantarKanan = (props) => {
     return (
@@ -11,36 +14,104 @@ const PengantarKanan = (props) => {
                         </Header.Content>
             </Header>
             <Segment basic>
+                <Puisi />
+                <HeaderContent judul="Prosedur Pendaftaran" />
                 <p style={{ color: "#333", fontSize: 18, fontWeight: 400 }}>
-                    Perihal waktu yang tidak pernah berhenti, Perjuangan ini akan segera dimulai.
-                Tentunya bukan perjalanan yang singkat untuk menuju kemantapan hati.
-                Gundah hati serta tensi tinggi pasti selalu menghantui tiap insan yang peduli.
-                Hingga pada akhirnya, mengambil peran adalah pilihan kami.
-                Sudah siap ambil peranmu ?
-                        </p>
-                <p style={{ textAlign: "center", fontSize: 15, fontWeight: 1500 }}><blockquote>"The Time is Always Right to Do What is Right"</blockquote>
-                    <b>-Martin Luther King Junior-</b></p>
-                <Header as='h2' style={{ marginBottom: 2.5, color: "#1B1E83" }}>
-                    Let's Start Our Journey!
-                        </Header>
+                    Prosedur pendaftaran Online calon staff BEM Filkom 2020
+                </p>
+                <React.Fragment>
+                    <Step.Group ordered size="tiny" vertical>
+                        <Step>
+                            <Step.Content>
+                                <Step.Title style={{ fontSize: 14 }}>Download Berkas Offline</Step.Title>
+                                <Step.Description>Download berkas offline yang telah disediakan</Step.Description>
+                            </Step.Content>
+                        </Step>
+                        <Step>
+                            <Step.Content>
+                                <Step.Title style={{ fontSize: 14 }}>Isi Berkas</Step.Title>
+                                <Step.Description>Baca dan isi berkas offline yang diperlukan </Step.Description>
+                            </Step.Content>
+                        </Step>
+                        <Step>
+                            <Step.Content>
+                                <Step.Title style={{ fontSize: 14 }}>Upload ke GDrive</Step.Title>
+                                <Step.Description>Buat folder pada Google Drive dan Upload berkas yang diperlukan</Step.Description>
+                            </Step.Content>
+                        </Step>
+                        <Step>
+                            <Step.Content>
+                                <Step.Title style={{ fontSize: 14 }}>Aktifkan Shareable Link</Step.Title>
+                                <Step.Description>Aktifkan shareable link pada folder GDrive yang menyimpan berkas</Step.Description>
+                            </Step.Content>
+                        </Step>
+                        <Step>
+                            <Step.Content>
+                                <Step.Title style={{ fontSize: 14 }}>Login</Step.Title>
+                                <Step.Description>Login menggunakan akun SIAM</Step.Description>
+                            </Step.Content>
+                        </Step>
+                        <Step>
+                            <Step.Content>
+                                <Step.Title style={{ fontSize: 14 }}>Isi form online dan upload berkas </Step.Title>
+                                <Step.Description>Isi form online yang disediakan dan tautkan shareable link GDrive berkas anda</Step.Description>
+                            </Step.Content>
+                        </Step>
+                        <Step>
+                            <Step.Content>
+                                <Step.Title style={{ fontSize: 14 }}>Upload Twibbon</Step.Title>
+                                <Step.Description>Download dan upload twibbon yang telah disediakan</Step.Description>
+                            </Step.Content>
+                        </Step>
+                        <Step>
+                            <Step.Content>
+                                <Step.Title style={{ fontSize: 14 }}>Tunggu Jadwal Interview & FGD</Step.Title>
+                                <Step.Description>Tunggu konfirmasi lebih lanjut untuk mendapat jadwal interview dan FGD</Step.Description>
+                            </Step.Content>
+                        </Step>
+                    </Step.Group>
+                </React.Fragment>
+                <HeaderContent judul="Berkas dan Form Offline" />
+                <p style={{ color: "#333", fontSize: 18, fontWeight: 400 }}>
+                    Silahkan baca dan download berkas offline berikut
+                </p>
+                <LinkButton />
+                <HeaderContent judul="Let's Start Our Journey!" />
                 <Segment basic textAlign="center" style={{ marginTop: 0 }}>
-                    <Form style={{ margin: 0, padding: 0 }}
-                        onSubmit={props.submit}
-                    >
-                        <Form.Checkbox
-                            required
-                            checked={props.checked}
-                            label={<label>I agree to the Terms and Conditions</label>}
-                            onChange={props.handler}
-                        />
-                        <Form.Button
-                            type="submit"
-                            size="large"
-                            style={{ marginBottom: 20, backgroundColor: "#ffd54f", color: "#1B1E83" }}
+                    <Checkbox
+                        style={{ fontSize: 12.5 }}
+                        required
+                        checked={props.checked}
+                        label={<label>Saya telah membaca, menyetujui, dan mentaati peraturan umum dan kode etik yang berlaku</label>}
+                        onChange={props.handler}
+                    />
+                    <br/>
+                    <br/>
+                    {props.checked === true && (
+                        <Button
+                            size="medium"
+                            onClick={props.submit}
+                            style={{ marginBottom: 20, width: 150, backgroundColor: "#1897D4", color: "#ffffff" }}
                         >
-                            Daftar Sekarang
-                                </Form.Button>
-                    </Form>
+                            LOGIN
+                        </Button>
+                    )}
+                    {props.checked === false && (
+                        <Popup
+                            position='bottom center'
+                            content='Silahkan setujui persyaratan terlebih dahulu'
+                            on='click'
+                            pinned
+                            trigger={
+                                <Button
+                                    size="medium"
+                                    style={{ marginBottom: 20, width: 150, backgroundColor: "#1897D4", color: "#ffffff" }}
+                                >
+                                    LOGIN
+                                    </Button>
+                            }
+                        />
+                    )}
                     {/* <Button
                                 
                                 onClick={async () => {

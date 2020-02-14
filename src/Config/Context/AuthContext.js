@@ -42,11 +42,11 @@ export const GlobalProvider = (Children) => {
 			}
 			setStatus = (status) => {
 				this.setState({ status: status });
-				console.log(this.state.status)
+				// console.log(this.state.status)
 			}
 			setLoading = (loading) => {
 				this.setState({ loading: loading });
-				console.log(this.state.loading)
+				// console.log(this.state.loading)
 			}
 			login = async (nim, pass) => {
 				const body = {
@@ -63,7 +63,7 @@ export const GlobalProvider = (Children) => {
 					});
 					const result = res;
 					const data = await res.json();
-					console.log(data);
+					// console.log(data);
 					if (!result.ok) {
 						return false;
 					} else {
@@ -72,7 +72,7 @@ export const GlobalProvider = (Children) => {
 						this.setState({ nama: data.nama });
 						this.setState({ prodi: data.prodi });
 						this.setState({ token: data.token });
-						console.log(this.state)
+						// console.log(this.state)
 						return { "status": true, "token": data.token };
 					}
 

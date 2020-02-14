@@ -8,3 +8,6 @@ export { KontenDua } from './KontenDua';
 export { KontenTiga } from './KontenTiga';
 export { default as PengantarKiri } from './Pengantar1';
 export { default as PengantarKanan } from './Pengantar2';
+export { default as LinkButton } from './LinkButton';
+export { default as Puisi } from './PuisiMutiara';
+
