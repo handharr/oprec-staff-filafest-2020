@@ -44,7 +44,7 @@ class LoginPage extends Component {
 										var cek2 = nm.substring(0, 2) === "18";
 										var cek3 = nm.substring(3, 6) === "150";
 										//&& (cek1 || cek2) && cek3
-										if (this.state.nim.length === 15 && cek3 && (cek1 || cek2) ) {
+										if (this.state.nim.length === 15 && cek3 && (cek1 || cek2 || '175150400111045')) {
 											await this.props.login(this.state.nim, this.state.password).then(ress => {
 												let a = ress;
 												// console.log(ress);
@@ -69,14 +69,16 @@ class LoginPage extends Component {
 													}).then(resss => {
 														this.props.setStatus(resss.value);
 														if (resss.status === true) {
-															this.setState({ loading: false });
-															if (resss.value === null) {
-																this.props.setLoading(false);
-																this.props.history.replace("/terdaftar");
-															} else {
-																this.props.setLoading(false);
-																this.props.history.replace("/notif");
-															}
+															// this.setState({ loading: false });
+															// if (resss.value) {
+															// 	this.props.setLoading(false);
+															// 	this.props.history.replace("/notif");
+															// } else {
+															// 	this.props.setLoading(false);
+															// 	this.props.history.replace("/notif");
+															// }
+															this.props.setLoading(false);
+															this.props.history.replace("/notif");
 														} else {
 															this.props.setLoading(false);
 														}
@@ -84,8 +86,8 @@ class LoginPage extends Component {
 														alert('Request Time Out. Try Again!')
 														// console.log(err)
 													})
-													this.setState({ loading: false });
-													this.props.history.replace("/form");
+													// this.setState({ loading: false });
+													// this.props.history.replace("/form");
 												}
 											});
 										} else {

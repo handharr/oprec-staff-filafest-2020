@@ -76,16 +76,16 @@ class FormPendaftaran extends Component {
 	};
 
 	render() {
-		var batas = new Date("2020-02-14T23:59:00+07:00");
+		var batas = new Date("2020-02-15T16:00:00+07:00");
 		var pembukaan = new Date("2020-02-10T16:00:00+07:00");
-		var pengumuman = new Date("2020-02-19T16:00:00+07:00");
+		var pengumuman = new Date("2020-02-19T10:00:00+07:00");
 		var sekarang = new Date();
-		if (sekarang > pengumuman) {
-			this.props.history.replace('/notif');
-		}
-		if (sekarang > batas) {
-			this.props.history.replace('/closed');
-		}
+		// if (sekarang > pengumuman) {
+		// 	this.props.history.replace('/notif');
+		// }
+		// if (sekarang > batas) {
+		// 	this.props.history.replace('/closed');
+		// }
 		// if (pembukaan > sekarang) {
 		// 	this.props.history.replace('/close')
 		// }
