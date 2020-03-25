@@ -8,7 +8,7 @@ export const KontenDua = () => {
                 <Icon name='list alternate' />
                 <Header.Content>
                     Struktur Organisasi
-      								<Header.Subheader>Struktur Kabinet dari BEM Filkom 2020</Header.Subheader>
+      				<Header.Subheader>Struktur Kabinet dari BEM Filkom 2020</Header.Subheader>
                 </Header.Content>
             </Header>
 

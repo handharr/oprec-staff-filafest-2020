@@ -1,7 +1,7 @@
 import React from 'react';
-import { Grid, Header, Icon, List, Segment } from "semantic-ui-react";
+import { Grid, Header, Icon, List, Segment, Placeholder } from "semantic-ui-react";
 
-export const KontenSatu = () => {
+export const KontenSatu = (props) => {
     return (
         <React.Fragment>
             {/* <div className="ui middle aligned center aligned container">
@@ -11,37 +11,17 @@ export const KontenSatu = () => {
             <Header as='h1' style={{ marginBottom: 0 }}>
                 <Icon name='info circle' />
                 <Header.Content>
-                    Visi & Misi
-      								<Header.Subheader>Visi dan Misi BEM Filkom 2020</Header.Subheader>
+                    {props.event.teks1}
+                    <Header.Subheader>{props.event.teks2}</Header.Subheader>
                 </Header.Content>
             </Header>
+            <br/>
             <Grid centered style={{ marginTop: 5 }}>
-                <Segment basic style={{ width: "75%", marginBottom: 15 }}>
-                    <Header size="huge" textAlign="center">Visi</Header>
-                    <p style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify" }}>
-                        BEM FILKOM sebagai wadah dalam membangun nilai instrumental mahasiswa yang tepat sasaran demi terciptanya kreasi bermakna bagi FILKOM dan Indonesia
-									</p>
-                </Segment>
-                <Segment basic style={{ width: "75%", marginTop: 0 }}>
-                    <Header size='huge' textAlign="center">Misi</Header>
-                    <List ordered style={{ color: "black" }}>
-                        <List.Item as='p' style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify", marginBottom: 0 }}>
-                            Membangun iklim internal bem filkom ub yang <strong>inklusif</strong> dan <strong>profesional</strong> bernafaskan kekeluargaan.
-										</List.Item>
-                        <List.Item as='p' style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify", marginTop: 0, marginBottom: 0 }}>
-                            <strong>Bekerja sama</strong> secara <strong>dinamis</strong> dengan seluruh pemangku kepentingan demi terciptanya kreasi jangka panjang dan berkelanjutan.
-										</List.Item>
-                        <List.Item as='p' style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify", marginTop: 0, marginBottom: 0 }}>
-                            <strong>Inisiator pergerakan</strong> mahasiswa yang peka terhadap isu sosial-politik.
-										</List.Item>
-                        <List.Item as='p' style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify", marginTop: 0, marginBottom: 0 }}>
-                            Melakukan <strong>pengembangan</strong> kemahasiswaan yang <strong>suportif</strong> dan komprehensif guna tercapainya aktualisasi diri dan prestasi mahasiswa.
-										</List.Item>
-                        <List.Item as='p' style={{ fontSize: 18, fontWeight: 1500, textAlign: "justify", marginTop: 0 }}>
-                            Optimalisasi <strong>pelayanan</strong> advokasi <strong>aktif progresif</strong> terkait dengan kebutuhan dan kesejahteraan mahasiswa.
-										</List.Item>
-                    </List>
-                </Segment>
+                <Placeholder.Paragraph style={{ marginLeft: 40, marginRight: 40 }}>
+                    <p style={{ fontSize: 15, fontWeight: 1500, textAlign: "justify" }}>
+                        {props.event.teks3}
+                    </p>
+                </Placeholder.Paragraph>
             </Grid>
         </React.Fragment>
     );

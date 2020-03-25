@@ -18,10 +18,10 @@ body {
 $gray-base: #999999;
 $brand-primary: #3498db; //Zen Blue
 
-#top {
+.top {
   width: 100%;
   height: 70vh;
-  background: url("./10379copy.jpg") no-repeat center center;
+  background:no-repeat center center;
   background-size: cover;
   position: relative;
   &:before {
@@ -35,7 +35,22 @@ $brand-primary: #3498db; //Zen Blue
     opacity: 0.7;
   }
 }
-#headercontain {
+
+.Image{
+  object-fit: cover;
+}
+
+.kiri{
+  float: left;
+}
+
+.kanan{
+  float: right;
+}
+.cardImage{
+  object-fit: cover;
+}
+.headercontain {
   margin: auto;
   text-align: center;
   position: absolute;
@@ -48,13 +63,32 @@ $brand-primary: #3498db; //Zen Blue
   padding: 0;
   height: 30%;
 }
-#welcome {
+.welcome {
   font-size: 4em;
   line-height: 1em;
   text-transform: uppercase;
   font-weight: bold;
-  color: #f8f8f8;
+  // color: #C73A7C;
+  // background: -webkit-linear-gradient( #F179A9, #C73A7C);
+  background: -webkit-linear-gradient(left,#1897D4, #06B8B0 , #F179A9 ,#C73A7C, #06B8B0 , #192452);
+   background: -o-linear-gradient(right, #1897D4, #06B8B0 , #F179A9, #C73A7C, #06B8B0 , #192452);
+   background: -moz-linear-gradient(right, #1897D4, #06B8B0 , #F179A9, #C73A7C, #06B8B0 , #192452);
+   background: linear-gradient(to right, #1897D4, #06B8B0 , #F179A9 , #C73A7C, #06B8B0 , #192452); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 10vh;
+  padding: 0 10%;
+  @media screen and (max-width: $break-point) {
+    font-size: 2em;
+  }
+}
+
+.lol{
+  font-size: 2em;
+  line-height: 1em;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #504949;
   padding: 0 10%;
   @media screen and (max-width: $break-point) {
     font-size: 2em;

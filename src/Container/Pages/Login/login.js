@@ -15,6 +15,15 @@ class LoginPage extends Component {
 		};
 	}
 	render() {
+
+		const acara = () => {
+			if (this.props.kondisi === "filafest") {
+				return "/formfilafest";
+			} else {
+				return "/formpk2";
+			}
+		}
+
 		return (
 			<React.Fragment>
 				<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -45,49 +54,33 @@ class LoginPage extends Component {
 										var cek3 = nm.substring(3, 6) === "150";
 										//&& (cek1 || cek2) && cek3
 										if (this.state.nim.length === 15 && cek3 && (cek1 || cek2 || '175150400111045')) {
-											await this.props.login(this.state.nim, this.state.password).then(ress => {
+											await this.props.login(this.state.nim, this.state.password).then(async (ress) => {
 												let a = ress;
 												// console.log(ress);
 												if (!a.status) {
 													this.setState({ message: true });
 													this.setState({ loading: false });
 												} else {
-													// const URL = 'http://localhost:5000/api/web/protected/checkOprecStaffBemFilkom2020';
-													const URL = 'https://backend-bem.herokuapp.com/api/web/protected/checkOprecStaffBemFilkom2020';
-													const body = {
-														nim: this.state.nim
-													}
-													const res = fetch(URL, {
-														method: "POST",
-														headers: {
-															"content-type": "application/json",
-															"authorization": "bearer " + ress.token
-														},
-														body: JSON.stringify(body)
-													}).then(ress => {
-														return ress.json()
-													}).then(resss => {
-														this.props.setStatus(resss.value);
-														if (resss.status === true) {
-															// this.setState({ loading: false });
-															// if (resss.value) {
-															// 	this.props.setLoading(false);
-															// 	this.props.history.replace("/notif");
-															// } else {
-															// 	this.props.setLoading(false);
-															// 	this.props.history.replace("/notif");
-															// }
-															this.props.setLoading(false);
-															this.props.history.replace("/notif");
+													try {
+														let nimnya = this.state.nim;
+														let kond = this.props.kondisi;
+														let URL = `https://bemfilkom.ub.ac.id/secure/api/2020/KapelProkerBesar/?check=${nimnya}&proker=${kond}`;
+														const res = await fetch(URL, {
+															method: "GET",
+														});
+														const result = res;
+														const data = await res.json();
+														console.log(data);
+														if(res.ok){
+															this.setState({ loading: false });
+															data.status === 1 ? this.props.history.replace('/terdaftar') : this.props.history.replace(acara());
 														} else {
-															this.props.setLoading(false);
+															alert("Mohon Maaf Terdapat Masalah Koneksi");
 														}
-													}).catch(err => {
-														alert('Request Time Out. Try Again!')
-														// console.log(err)
-													})
-													// this.setState({ loading: false });
-													// this.props.history.replace("/form");
+													} catch (error) {
+														console.log("Konsol error : ", error);
+														alert("Mohon Maaf Terdapat Masalah Koneksi");
+													}
 												}
 											});
 										} else {

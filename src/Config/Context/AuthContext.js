@@ -16,7 +16,8 @@ export const GlobalProvider = (Children) => {
 				token: undefined,
 				registered: false,
 				status: undefined,
-				loading: true
+				loading: true,
+				kondisi: "filafest",
 			};
 			constructor() {
 				super();
@@ -24,6 +25,7 @@ export const GlobalProvider = (Children) => {
 				this.logout = this.logout.bind(this);
 				this.setStatus = this.setStatus.bind(this);
 				this.setLoading = this.setLoading.bind(this);
+				this.setKondisi = this.setKondisi.bind(this);
 			}
 			//   setInfo(){
 			//       this.setState({nama:nama});
@@ -38,23 +40,29 @@ export const GlobalProvider = (Children) => {
 				this.setState({ nim: undefined });
 				this.setState({ prodi: undefined });
 				this.setState({ link: undefined });
-				this.setState({ token: undefined });
+				// this.setState({ token: undefined });
 			}
 			setStatus = (status) => {
 				this.setState({ status: status });
 				// console.log(this.state.status)
 			}
+
 			setLoading = (loading) => {
 				this.setState({ loading: loading });
 				// console.log(this.state.loading)
 			}
+
+			setKondisi = (x) => {
+				this.setState({ kondisi: x })
+			}
+
 			login = async (nim, pass) => {
 				const body = {
 					nim: nim,
-					pass: pass
+					password: pass
 				};
 				try {
-					const res = await fetch("https://backend-bem.herokuapp.com/auth/login", {
+					const res = await fetch("https://cors-anywhere.herokuapp.com/https://bemfilkom.ub.ac.id/secure/api/auth/", {
 						method: "POST",
 						headers: {
 							"content-type": "application/json"
@@ -63,21 +71,22 @@ export const GlobalProvider = (Children) => {
 					});
 					const result = res;
 					const data = await res.json();
-					// console.log(data);
+					console.log(data);
 					if (!result.ok) {
 						return false;
 					} else {
 						this.setState({ isLogged: true });
-						this.setState({ nim: data.nim });
-						this.setState({ nama: data.nama });
-						this.setState({ prodi: data.prodi });
-						this.setState({ token: data.token });
+						this.setState({ nim: data.data.nim });
+						this.setState({ nama: data.data.nama });
+						this.setState({ prodi: data.data.prodi });
+						// this.setState({ token: data.token });
 						// console.log(this.state)
-						return { "status": true, "token": data.token };
+						// return { "status": true, "token": data.token };
+						return { "status": true };
 					}
 
 				} catch (error) {
-					console.log(error);
+					console.log("Konsol error : ", error);
 				}
 			};
 
@@ -96,7 +105,9 @@ export const GlobalProvider = (Children) => {
 							token: this.state.token,
 							status: this.state.status,
 							setStatus: this.setStatus,
-							setLoading: this.setLoading
+							setLoading: this.setLoading,
+							kondisi: this.state.kondisi,
+							setKondisi: this.setKondisi
 						}}
 					>
 						<Children {...this.props} />
@@ -128,4 +139,14 @@ export const GlobalConsumer = (Children1) => {
 			}
 		}
 	);
+}
+
+export function GlobalConsumerFunction(Children2) {
+	return function ParentConsumer1(props) {
+		return (
+			<Consumer>
+				{ value => <Children2 {...props} {...value} /> }
+			</Consumer>
+		)
+	}
 }
