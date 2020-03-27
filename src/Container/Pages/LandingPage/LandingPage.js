@@ -4,6 +4,11 @@ import { GlobalConsumer } from '../../../Config';
 import '../LandingPage/stile.scss';
 
 function LandingPage(props) {
+
+    const sizeButton = () => {
+        return window.innerWidth < 1050 ? "tiny" : "medium";
+    }
+
     return (
         <Grid
             style={{
@@ -20,7 +25,7 @@ function LandingPage(props) {
                 style={{
                     margin: 0,
                     padding: 0,
-                    backgroundImage: `url("./img/fixlanding.jpg")`,
+                    backgroundImage: `url("./img/fixlanding-min.jpg")`,
                     height: "100%"
                 }}
                 className="top"
@@ -28,19 +33,20 @@ function LandingPage(props) {
                 <Grid.Column textAlign="center" verticalAlign="middle" width={8}>
                     <div className="welcome">FILAFEST</div>
                     <p
+                    className="tulisan"
                         style={{
                             color: "white",
                         }}
                     >Filkom Anniversary Festival</p>
                     <Button
                         content='See Details'
+                        size={sizeButton()}
                         style={{
                             borderRadius: 20,
                             border: `2.5px solid #0E827E`
                         }}
                         onClick={
                             () => {
-                                // props.setKondisi("filafest");
                                 props.history.replace("/oprec/home/filafest");
                             }
                         }
@@ -49,11 +55,13 @@ function LandingPage(props) {
                 <Grid.Column textAlign="center" verticalAlign="middle" width={8}>
                     <div className="welcome">PK2MABA</div>
                     <p
+                    className="tulisan"
                         style={{
                             color: "white",
                         }}
                     >Pengenalan Kehidupan Kampus Mahasiswa Baru</p>
                     <Button
+                        size={sizeButton()}
                         content='See Details'
                         style={{
                             borderRadius: 20,
@@ -61,7 +69,6 @@ function LandingPage(props) {
                         }}
                         onClick={
                             () => {
-                                // props.setKondisi("pk2maba");
                                 props.history.replace("/oprec/home/pk2maba");
                             }
                         }

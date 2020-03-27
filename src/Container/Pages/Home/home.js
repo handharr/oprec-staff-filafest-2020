@@ -14,24 +14,14 @@ function Home(props) {
 		},
 		[
 			{
-				tgl: "28 Maret 2020",
-				desc: "Pembukaan Pendaftaran Online",
+				tgl: "28 Maret - 02 April 2020",
+				desc: "Pendaftaran Online",
 				color: "olive"
 			},
 			{
-				tgl: "02 April 2020",
-				desc: "Penutupan Pendaftaran Online",
-				color: "red"
-			},
-			{
-				tgl: "30 Maret 2020",
+				tgl: "30 Maret - 03 April 2020",
 				desc: "Pengumpulan Berkas",
 				color: "blue"
-			},
-			{
-				tgl: "03 April 2020",
-				desc: "Batas Pengumpulan Berkas",
-				color: "red"
 			},
 			{
 				tgl: "05 - 07 April 2020",
@@ -58,24 +48,14 @@ function Home(props) {
 		},
 		[
 			{
-				tgl: "28 Maret 2020",
-				desc: "Pembukaan Pendaftaran",
+				tgl: "28 Maret - 02 April 2020",
+				desc: "Pendaftaran Online",
 				color: "olive"
 			},
 			{
-				tgl: "02 April 2020",
-				desc: "Penutupan Pendaftaran",
-				color: "red"
-			},
-			{
-				tgl: "30 Maret 2020",
+				tgl: "30 Maret - 03 April 2020",
 				desc: "Pengumpulan Berkas",
 				color: "blue"
-			},
-			{
-				tgl: "03 April 2020",
-				desc: "Batas Pengumpulan Berkas",
-				color: "red"
 			},
 			{
 				tgl: "05 - 07 April 2020",
