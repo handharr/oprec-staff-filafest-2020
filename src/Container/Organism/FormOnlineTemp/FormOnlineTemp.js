@@ -113,7 +113,7 @@ function FormPendaftaranTemp(props) {
             alasan: childProps.find(isi => isi["key"] === "alasan").value,
         };
         // console.log("isiBody", body);
-        const URL = "https://cors-anywhere.herokuapp.com/https://bemfilkom.ub.ac.id/secure/api/2020/KapelProkerBesar/";
+        const URL = "https://bemfilkom.ub.ac.id/secure/api/2020/KapelProkerBesar/";
         const res = await fetch(URL, {
             method: "POST",
             headers: {

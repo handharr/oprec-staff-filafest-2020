@@ -19,7 +19,7 @@ export const Terdaftar = (props) => {
 			<div style={{ width: '50vw' }}>
 				<Message>
 					<br />
-					<h1 style={{ textAlign: 'center', color: '#1897D4' }}>Terimakasih telah mendaftar Opten Kapel {proker}!</h1>
+					<h1 style={{ textAlign: 'center', color: '#1897D4' }}>Terimakasih telah mendaftar Opten Kapel {proker.toUpperCase()}!</h1>
 					<h3 style={{ color: 'red', textAlign: 'center' }}>Silahkan Download Berkas Offline Dibawah Ini!!!</h3>
 					{<center>
 						<a href={linknya()} target="_blank" style={{ 'color': 'white' }}>

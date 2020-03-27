@@ -25,7 +25,7 @@ function LoginPage(props) {
 			<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
 				<Header as="h2" textAlign="center" style={{ marginTop: 30 }}>
-					Login Opten Kapel {proker}
+					Login Opten Kapel {proker.toUpperCase()}
 					</Header>
 				<div style={{ width: '50vw' }}>
 					<Form size="large">
@@ -64,7 +64,7 @@ function LoginPage(props) {
 													try {
 														let nimnya = nim;
 														let kond = proker;
-														let URL = `https://cors-anywhere.herokuapp.com/https://bemfilkom.ub.ac.id/secure/api/2020/KapelProkerBesar/?check=${nimnya}&proker=${kond}`;
+														let URL = `https://bemfilkom.ub.ac.id/secure/api/2020/KapelProkerBesar/?check=${nimnya}&proker=${kond}`;
 														const res = await fetch(URL, {
 															method: "GET",
 														});
