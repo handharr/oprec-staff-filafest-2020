@@ -178,10 +178,11 @@ class Formpk2 extends Component {
 		console.log(data);
 		if (!result.ok) {
             return false;
-            this.setState({ loading: true })
+            this.setState({ loading: false });
             alert("Terjadi Kesalahan Koneksi");
 		} else {
-			this.props.history.replace("/terdaftar");
+            let par = this.props.match.params.proker;
+            this.props.history.replace(`/oprec/terdaftar/${par}`);
 		}
     };
     render() {

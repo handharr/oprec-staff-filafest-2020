@@ -88,7 +88,6 @@ class FormPendaftaran extends Component {
 	// 	},
 	// ]
 
-
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -134,7 +133,8 @@ class FormPendaftaran extends Component {
 		if (!result.ok) {
 			return false;
 		} else {
-			this.props.history.replace("/terdaftar");
+			let par = this.props.match.params.proker;
+            this.props.history.replace(`/oprec/terdaftar/${par}`);
 		}
 		// .then(response => {
 		// 	if (response.ok) {

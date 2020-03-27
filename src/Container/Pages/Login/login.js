@@ -1,79 +1,80 @@
-import React, { Component } from "react";
+import React from "react";
 import { Button, Form, Header, Message } from "semantic-ui-react";
 import { GlobalConsumer } from '../../../Config/Context';
+import { useParams } from 'react-router-dom';
 
-class LoginPage extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			nim: "",
-			password: "",
-			nama: "",
-			prodi: "",
-			loading: false,
-			message: false
-		};
-	}
-	render() {
+function LoginPage(props) {
 
-		const acara = () => {
-			if (this.props.kondisi === "filafest") {
-				return "/formfilafest";
-			} else {
-				return "/formpk2";
-			}
+	let { proker } = useParams();
+
+	const [nim, setNim] = React.useState("");
+	const [password, setPassword] = React.useState("");
+	const [loading, setLoading] = React.useState(false);
+	const [message, setMessage] = React.useState(false);
+
+	const acara = () => {
+		if (proker === "filafest") {
+			return "/oprec/formfilafest/filafest";
+		} else {
+			return "/oprec/formpk2/pk2maba";
 		}
+	}
 
-		return (
-			<React.Fragment>
-				<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+	return (
+		<React.Fragment>
+			<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-					<Header as="h2" textAlign="center" style={{ marginTop: 30 }}>
-						Login
+				<Header as="h2" textAlign="center" style={{ marginTop: 30 }}>
+					Login Opten Kapel {proker}
 					</Header>
-					<div style={{ width: '50vw' }}>
-						<Form size="large">
-							<Form.Input fluid type="number" icon="user" iconPosition="left" placeholder="NIM" onChange={input => this.setState({ nim: input.target.value })} />
-							<Form.Input fluid icon="lock" iconPosition="left" placeholder="Password" type="password" onChange={input => this.setState({ password: input.target.value })} />
-							{this.state.loading && (
-								<Button fluid size="large" loading primary>
-									Loading
-								</Button>
-							)}
-							{this.state.loading === false && (
-								<Button
-									color="blue"
-									fluid
-									size="large"
-									onClick={async () => {
-										this.setState({ loading: true });
-										//cek nim
-										var nm = this.state.nim;
-										var cek1 = nm.substring(0, 2) === "19";
-										var cek2 = nm.substring(0, 2) === "18";
-										var cek3 = nm.substring(3, 6) === "150";
-										//&& (cek1 || cek2) && cek3
-										if (this.state.nim.length === 15 && cek3 && (cek1 || cek2 || '175150400111045')) {
-											await this.props.login(this.state.nim, this.state.password).then(async (ress) => {
+				<div style={{ width: '50vw' }}>
+					<Form size="large">
+						<Form.Input fluid type="number" icon="user" iconPosition="left" placeholder="NIM" onChange={input => setNim(input.target.value)} />
+						<Form.Input fluid icon="lock" iconPosition="left" placeholder="Password" type="password" onChange={input => setPassword(input.target.value)} />
+						{loading && (
+							<Button fluid size="large" loading primary>
+								Loading
+							</Button>
+						)}
+						{loading === false && (
+							<Button
+								color="blue"
+								fluid
+								size="large"
+								onClick={async () => {
+									setLoading(true)
+									//cek nim
+									var nm = nim;
+									var cek1 = nm.substring(0, 2) === "19";
+									var cek2 = nm.substring(0, 2) === "18";
+									var cek3 = nm.substring(3, 6) === "150";
+									//&& (cek1 || cek2) && cek3
+									if (nim.length === 15 && cek3 && (cek1 || cek2 || '175150400111045')) {
+										if (proker === (null || undefined || "")) {
+											alert("Ups!! Maaf terjadi kendala, silahkan pilih proker terlebih dahulu!");
+											props.history.replace("/")
+										} else {
+											await props.login(nim, password).then(async (ress) => {
 												let a = ress;
-												// console.log(ress);
+												console.log(ress);
 												if (!a.status) {
-													this.setState({ message: true });
-													this.setState({ loading: false });
+													setMessage(true);
+													setLoading(false)
 												} else {
 													try {
-														let nimnya = this.state.nim;
-														let kond = this.props.kondisi;
-														let URL = `https://bemfilkom.ub.ac.id/secure/api/2020/KapelProkerBesar/?check=${nimnya}&proker=${kond}`;
+														let nimnya = nim;
+														let kond = proker;
+														let URL = `https://cors-anywhere.herokuapp.com/https://bemfilkom.ub.ac.id/secure/api/2020/KapelProkerBesar/?check=${nimnya}&proker=${kond}`;
 														const res = await fetch(URL, {
 															method: "GET",
 														});
 														const result = res;
 														const data = await res.json();
 														console.log(data);
-														if(res.ok){
-															this.setState({ loading: false });
-															data.status === 1 ? this.props.history.replace('/terdaftar') : this.props.history.replace(acara());
+														if (res.ok) {
+															setLoading(false);
+															let par = proker;
+															data.status === 1 ? props.history.replace(`/oprec/terdaftar/${par}`) : props.history.replace(acara());
 														} else {
 															alert("Mohon Maaf Terdapat Masalah Koneksi");
 														}
@@ -83,43 +84,42 @@ class LoginPage extends Component {
 													}
 												}
 											});
-										} else {
-											this.setState({ loading: false });
-											this.setState({ message: true });
 										}
-									}}>
-									Login
-								</Button>
-							)}
-						</Form>
-					</div>
-					<br></br>
-					<br></br>
-					<br></br>
-					<br></br>
-					{this.state.loading === true && (
-						<div style={{ marginBottom: 50, marginTop: -10 }}>
-							<div class="ui icon message">
-								<i class="notched circle loading icon" />
-								<div class="content">
-									<div class="header">Just one second</div>
-									<p>We're fetching that content for you.</p>
-								</div>
+									} else {
+										setLoading(false);
+										setMessage(true);
+									}
+								}}>
+								Login
+							</Button>
+						)}
+					</Form>
+				</div>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				{loading === true && (
+					<div style={{ marginBottom: 50, marginTop: -10 }}>
+						<div class="ui icon message">
+							<i class="notched circle loading icon" />
+							<div class="content">
+								<div class="header">Just one second</div>
+								<p>We're fetching that content for you.</p>
 							</div>
 						</div>
-					)}
-					{this.state.message === true && (
-						<Message
-							style={{ marginBottom: 50, marginTop: -10 }}
-							error
-							header='Password atau Nim salah!'
-							content='Silahkan Login Kembali!'
-						/>
-					)}
-				</div>
-			</React.Fragment>
-
-		);
-	}
+					</div>
+				)}
+				{message === true && (
+					<Message
+						style={{ marginBottom: 50, marginTop: -10 }}
+						error
+						header='Password atau Nim tidak sesuai!'
+						content='Silahkan Login Kembali!'
+					/>
+				)}
+			</div>
+		</React.Fragment>
+	);
 }
 export default GlobalConsumer(LoginPage);

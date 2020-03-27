@@ -1,1 +1,1 @@
-export {GlobalProvider, GlobalConsumer, GlobalConsumerFunction} from './AuthContext';
+export {GlobalProvider, GlobalConsumer } from './AuthContext';

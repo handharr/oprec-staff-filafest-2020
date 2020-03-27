@@ -1,0 +1,43 @@
+$outline-width: 0;
+$break-point: 850px;
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+.top {
+  width: 100%;
+  height: 70vh;
+  background:no-repeat center center;
+  background-size: cover;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(20, 20, 20);
+    opacity: 0.5;
+  }
+}
+
+.welcome {
+    font-size: 4em;
+    line-height: 1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    // color: #C73A7C;
+    // background: -webkit-linear-gradient( #F179A9, #C73A7C);
+    // background: -webkit-linear-gradient(left,#1897D4, #06B8B0 , #F179A9 ,#C73A7C, #06B8B0 , #192452);
+    // background: -o-linear-gradient(right, #1897D4, #06B8B0 , #F179A9, #C73A7C, #06B8B0 , #192452);
+    // background: -moz-linear-gradient(right, #1897D4, #06B8B0 , #F179A9, #C73A7C, #06B8B0 , #192452);
+    // background: linear-gradient(to right, #1897D4, #06B8B0 , #F179A9 , #C73A7C, #06B8B0 , #192452); 
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5vh;
+    padding: 0 10%;
+    @media screen and (max-width: $break-point) {
+      font-size: 2em;
+    }
+  }

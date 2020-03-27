@@ -18,7 +18,7 @@ body {
 $gray-base: #999999;
 $brand-primary: #3498db; //Zen Blue
 
-.top {
+#top {
   width: 100%;
   height: 70vh;
   background:no-repeat center center;
@@ -50,7 +50,7 @@ $brand-primary: #3498db; //Zen Blue
 .cardImage{
   object-fit: cover;
 }
-.headercontain {
+#headercontain {
   margin: auto;
   text-align: center;
   position: absolute;
@@ -63,17 +63,17 @@ $brand-primary: #3498db; //Zen Blue
   padding: 0;
   height: 30%;
 }
-.welcome {
+#welcome {
   font-size: 4em;
   line-height: 1em;
   text-transform: uppercase;
   font-weight: bold;
-  // color: #C73A7C;
+  background: white;
   // background: -webkit-linear-gradient( #F179A9, #C73A7C);
-  background: -webkit-linear-gradient(left,#1897D4, #06B8B0 , #F179A9 ,#C73A7C, #06B8B0 , #192452);
-   background: -o-linear-gradient(right, #1897D4, #06B8B0 , #F179A9, #C73A7C, #06B8B0 , #192452);
-   background: -moz-linear-gradient(right, #1897D4, #06B8B0 , #F179A9, #C73A7C, #06B8B0 , #192452);
-   background: linear-gradient(to right, #1897D4, #06B8B0 , #F179A9 , #C73A7C, #06B8B0 , #192452); 
+  // background: -webkit-linear-gradient(left,#1897D4, #06B8B0 , #F179A9 ,#C73A7C, #06B8B0 , #192452);
+  // background: -o-linear-gradient(right, #1897D4, #06B8B0 , #F179A9, #C73A7C, #06B8B0 , #192452);
+  // background: -moz-linear-gradient(right, #1897D4, #06B8B0 , #F179A9, #C73A7C, #06B8B0 , #192452);
+  // background: linear-gradient(to right, #1897D4, #06B8B0 , #F179A9 , #C73A7C, #06B8B0 , #192452); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 10vh;
@@ -83,17 +83,6 @@ $brand-primary: #3498db; //Zen Blue
   }
 }
 
-.lol{
-  font-size: 2em;
-  line-height: 1em;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #504949;
-  padding: 0 10%;
-  @media screen and (max-width: $break-point) {
-    font-size: 2em;
-  }
-}
 .arrow {
   display: block;
   text-align: center;

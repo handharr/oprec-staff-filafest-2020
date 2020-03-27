@@ -8,19 +8,15 @@ class Navbar extends Component {
 		super(props);
 	}
 	// state = { activeItem: "Pendaftaran" };
-
 	// handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 	// active={activeItem === "Pendaftaran"}
-
 	render() {
 		// const { activeItem } = this.state;
-
 		return (
-
 			<React.Fragment>
 				<Menu size="massive" style={{ margin: 0, padding: 0, backgroundColor: "white" }} secondary color='violet'>
-					<Menu.Item style={{ padding: 0 }} as={Link} to='./' name="Home"  >
-						<Image style={{ width: 45, marginLeft: 15 }} size="massive" src="./img/homefix.png" />
+					<Menu.Item style={{ width: 45,padding: 0 }} as={Link} to='/' name="Home"  >
+						<Image style={{  marginLeft: 15 }} size="massive" src="./img/homefix.png" />
 					</Menu.Item>
 					<Menu.Item style={{ padding: 0, position:"absolute", left:"50%" }}>
 						<Image style={{ width: 35}} src="./img/LogoCrop.png"/>
@@ -36,7 +32,7 @@ class Navbar extends Component {
 									}}
 								>
 								</Button>
-								<Icon size="large" name='sign out' />
+								<Icon name='sign out' />
 							</Menu.Item>
 						</Menu.Menu>
 					)}
