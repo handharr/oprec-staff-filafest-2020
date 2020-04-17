@@ -29,8 +29,8 @@ function LoginPage(props) {
 					</Header>
 				<div style={{ width: '50vw' }}>
 					<Form size="large">
-						<Form.Input fluid type="number" icon="user" iconPosition="left" placeholder="NIM" onChange={input => setNim(input.target.value)} />
-						<Form.Input fluid icon="lock" iconPosition="left" placeholder="Password" type="password" onChange={input => setPassword(input.target.value)} />
+						<Form.Input fluid type="number" icon="user" value={nim} iconPosition="left" placeholder="NIM" onChange={input => setNim(input.target.value)} />
+						<Form.Input fluid icon="lock" iconPosition="left" value={password} placeholder="Password" type="password" onChange={input => setPassword(input.target.value)} />
 						{loading && (
 							<Button fluid size="large" loading primary>
 								Loading
@@ -44,19 +44,23 @@ function LoginPage(props) {
 								onClick={async () => {
 									setLoading(true)
 									//cek nim
-									var nm = nim;
-									var cek1 = nm.substring(0, 2) === "19";
-									var cek2 = nm.substring(0, 2) === "18";
-									var cek3 = nm.substring(3, 6) === "150";
-									//&& (cek1 || cek2) && cek3
-									if (nim.length === 15 && cek3 && (cek1 || cek2 || '175150400111045')) {
+									let nm = nim;
+									let cek1 = nm.substring(0, 2) === "19";
+									let cek2 = nm.substring(0, 2) === "18";
+									let cek3 = nm.substring(3, 6) === "150";
+									let cek4 = nm === "175150400111045";
+									// console.log("cek 19",cek1);
+									// console.log("cek 18",cek2);
+									// console.log("cek filkom",cek3);
+									console.log("cek nim",nim.length === 15 && cek3 && (cek1 || cek2 || cek4));
+									if (nim.length === 15 && cek3 && (cek1 || cek2 || cek4)) {
 										if (proker === (null || undefined || "")) {
 											alert("Ups!! Maaf terjadi kendala, silahkan pilih proker terlebih dahulu!");
 											props.history.replace("/")
 										} else {
 											await props.login(nim, password).then(async (ress) => {
 												let a = ress;
-												console.log(ress);
+												// console.log(ress);
 												if (!a.status) {
 													setMessage(true);
 													setLoading(false)
@@ -70,7 +74,7 @@ function LoginPage(props) {
 														});
 														const result = res;
 														const data = await res.json();
-														console.log(data);
+														// console.log(data);
 														if (res.ok) {
 															setLoading(false);
 															let par = proker;

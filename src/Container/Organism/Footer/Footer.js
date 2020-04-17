@@ -1,6 +1,6 @@
 import React from "react";
 
-const Footer = () => {
+function Footer() {
 	return (
 		<React.Fragment>
 			<footer style={{ backgroundColor: "#475050", color: "white", height:125, textAlign:"center" }}>
@@ -9,6 +9,5 @@ const Footer = () => {
 		</React.Fragment>
 	);
 }
-
 
 export default Footer;

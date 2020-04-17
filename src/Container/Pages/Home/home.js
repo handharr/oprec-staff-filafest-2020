@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Button, Container, Divider } from "semantic-ui-react";
 import { GlobalConsumer } from '../../../Config';
 import { HomeHeader, KontenSatu, KontenTiga } from '../../../Components/Molecules';
@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import './style.scss';
 
 function Home(props) {
+
 	const filafest = [
 		{
 			teks1: "Filkom Anniversary Festival",
@@ -20,12 +21,12 @@ function Home(props) {
 			},
 			{
 				tgl: "30 Maret - 03 April 2020",
-				desc: "Pengumpulan Berkas",
+				desc: "Pengumpulan Berkas Online",
 				color: "blue"
 			},
 			{
 				tgl: "05 - 07 April 2020",
-				desc: "Fit and Propper Test",
+				desc: "Fit and Propper Test Online",
 				color: "blue"
 			},
 			{
@@ -54,12 +55,12 @@ function Home(props) {
 			},
 			{
 				tgl: "30 Maret - 03 April 2020",
-				desc: "Pengumpulan Berkas",
+				desc: "Pengumpulan Berkas Online",
 				color: "blue"
 			},
 			{
 				tgl: "05 - 07 April 2020",
-				desc: "Fit and Propper Test",
+				desc: "Fit and Propper Test Online",
 				color: "blue"
 			},
 			{

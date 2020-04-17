@@ -42,7 +42,7 @@ export const GlobalProvider = (Children) => {
 					});
 					const result = res;
 					const data = await res.json();
-					console.log(data);
+					// console.log(data);
 					if (!result.ok) {
 						return false;
 					} else {

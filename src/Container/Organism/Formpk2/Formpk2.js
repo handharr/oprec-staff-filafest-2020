@@ -175,7 +175,7 @@ class Formpk2 extends Component {
 		})
 		const result = res;
 		const data = await res.json();
-		console.log(data);
+		// console.log(data);
 		if (!result.ok) {
             return false;
             this.setState({ loading: false });
