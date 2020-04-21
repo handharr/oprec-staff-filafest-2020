@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { Awal } from './Container/Pages';
+import { App } from './Container/Pages';
 import * as serviceWorker from './serviceWorker';
 import { HashRouter } from 'react-router-dom';
 
 ReactDOM.render(
     <HashRouter>
-        <Awal/>
+        <App/>
     </HashRouter>
     , document.getElementById('root'));
 

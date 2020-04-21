@@ -14,4 +14,4 @@ function Awal(props) {
     )
 }
 
-export default GlobalProvider(GlobalConsumer(Awal));
+export default (GlobalConsumer(Awal));

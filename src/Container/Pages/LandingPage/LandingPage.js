@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Button, Header, Image } from "semantic-ui-react";
 import { GlobalConsumer } from '../../../Config';
-import '../LandingPage/stile.scss';
+// import '../LandingPage/stile.scss';
 
 function LandingPage(props) {
 

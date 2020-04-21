@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import { GlobalConsumer } from '../../../Config/Context';
+import { GlobalConsumer,GlobalProvider } from '../../../Config/Context';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import { LoginPage } from '../../Pages';
-import { Navbar, Footer, Formpk2, FormPendaftaranTemp, Formpk2Temp } from '../../Organism';
-import { Home} from '../../Pages';
+import { LoginPage, Pengantar } from '../../Pages';
+import { Navbar, Footer,Formpk2Temp } from '../../Organism';
+import { Home } from '../../Pages';
 import { Predate, Terdaftar, Tutup } from '../../../Components/Molecules';
 
 // const PrivateRoute = ({ component: Component,status:isLogged,pilih:pilih, ...rest }) => (
@@ -61,21 +61,18 @@ function App(props) {
     <React.Fragment>
       <Navbar nama="tes" />
       <Switch>
-        {/* <Route exact path="/" component={LandingPage} /> */}
-        <Route path="/oprec/home/:proker" component={Home} />
-        <Route path="/oprec/login/:proker" component={LoginPage} />
-        {/* <Route path="/welcome" component={Pengantar} /> */}
-        {/* <PrivateRoute path="/notif" component={NotifSukses} status={props.isLogged} /> */}
-        <PrivateRoute path="/oprec/formfilafest/:proker" component={FormPendaftaranTemp} status={props.isLogged} />
-        <PrivateRoute path="/oprec/terdaftar/:proker" component={Terdaftar} status={props.isLogged} />
-        <PrivateRoute path="/oprec/closed" component={Tutup} status={props.isLogged} />
-        <PrivateRoute path="/oprec/close" component={Predate} status={props.isLogged} />
-        <PrivateRoute path="/oprec/formpk2/:proker" component={Formpk2Temp} status={props.isLogged} />
+        <Route path="/" component={Home} exact />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/pendaftaran" component={Pengantar} />
+        <PrivateRoute path="/terdaftar" component={Terdaftar} status={props.isLogged} />
+        <PrivateRoute path="/closed" component={Tutup} status={props.isLogged} />
+        <PrivateRoute path="/close" component={Predate} status={props.isLogged} />
+        <PrivateRoute path="/formpk2" component={Formpk2Temp} status={props.isLogged} />
       </Switch>
-      {/* <LandingPage/> */}
+      {/* <Terdaftar/> */}
       <Footer />
     </React.Fragment>
   );
 }
 
-export default GlobalConsumer(App);
+export default GlobalProvider(GlobalConsumer(App));

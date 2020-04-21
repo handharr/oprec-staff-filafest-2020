@@ -1,9 +1,9 @@
 import React from 'react';
-import { Form, Button, Header } from "semantic-ui-react";
+import { Form, Button, Header, Message } from "semantic-ui-react";
 // import SemanticDatepicker from 'react-semantic-ui-datepickers';
 import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css';
 import { GlobalConsumer } from '../../../Config';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
 function Formpk2Temp(props) {
     // State untuk form pemohon
@@ -20,7 +20,37 @@ function Formpk2Temp(props) {
         };
     }
 
-    let { proker } = useParams();
+    const [pesan, setPesan] = React.useState(false);
+    const [pilihan1, setPilihan1] = React.useState(null);
+    const [pilihan2, setPilihan2] = React.useState(null);
+
+    const ubahPilihan1 = (e) => {
+        setPilihan1(e.target.innerText);
+    }
+    
+    const ubahPilihan2 = (e) => {
+        setPilihan2(e.target.innerText);
+    }
+
+    // let { proker } = useParams();
+
+    const divisi = [
+        { key: 1, value: 'acara', text: 'Divisi Acara' },
+        { key: 2, value: 'sqc', text: 'Divisi Student Quality Control' },
+        { key: 4, value: 'humas', text: 'Divisi Hubungan Masyarakat (Humas)' },
+        { key: 5, value: 'perkap', text: 'Divisi Perlengkapan' },
+        { key: 6, value: 'pit', text: 'Divisi Publikasi dan IT' },
+        { key: 7, value: 'kestari', text: 'Divisi Kestari' },
+        { key: 8, value: 'korlap', text: 'Divisi Koordinator Lapangan (Korlap)' },
+        { key: 9, value: 'komkes', text: 'Divisi Konsumsi dan Kesehatan (Komkes)' },
+        { key: 10, value: 'pendamping', text: 'Divisi Pendamping' },
+        { key: 11, value: 'ddm', text: 'Divisi Dokumentasi, Desain, dan Multimedia (DDM)' },
+    ]
+
+    // const divisi2=[
+    //     { key: 12, value: null, text: '--Tidak Memilih--', disabled : true },
+    //     ...divisi,
+    // ]
 
     const [loading, setLoading] = React.useState(false);
 
@@ -89,58 +119,48 @@ function Formpk2Temp(props) {
             placeholder: "Motto"
         },
         {
-            key: "alasan",
-            ...useFormInput(''),
+            key: "pilihan1",
+            onChange : ubahPilihan1,
             required: true,
-            label: "Alasan Mendaftar",
-            area: true,
-            placeholder: "Alasan Mendaftar Opten"
+            label: "Pilihan Divisi 1",
+            cond: "dropdown",
+            placeholder: "Pilihan Divisi pertama"
         },
         {
-            key: "lebihkurang",
+            key: "alasan1",
             ...useFormInput(''),
             required: true,
-            label: "Kelebihan/Kekurangan",
-            placeholder : "Kelebihan dan Kekurangan",
-            area: true
+            label: "Alasan Memilih Divisi",
+            cond: "area",
+            placeholder: "Alasan memilih"
         },
         {
-            key: "organisasi",
-            ...useFormInput(''),
+            key: "pilihan2",
+            onChange : ubahPilihan2,
             required: true,
-            label: "Pengalaman Organisasi",
-            placeholder : "Pengalaman organisasi yang dimiliki",
-            area: true
+            label: "Pilihan Divisi 2",
+            cond: "dropdown",
+            placeholder: "Pilihan Divisi kedua"
         },
         {
-            key: "kepanitiaan",
+            key: "alasan2",
             ...useFormInput(''),
             required: true,
-            label: "Pengalaman Kepanitiaan",
-            placeholder : "Kepanitiaan yang pernah diikuti",
-            area: true
+            label: "Alasan Memilih Divisi",
+            cond: "area",
+            placeholder: "Alasan memilih"
         },
         {
-            key: "lainnya",
+            key: "linkDrive",
             ...useFormInput(''),
             required: true,
-            label : "Pengalaman Lainnya",
-            placeholder : "Pengalaman lain yang dimiliki",
-            area: true
-        },
-        {
-            key: "prestasi",
-            ...useFormInput(''),
-            required: true,
-            label : "Prestasi",
-            placeholder : "Prestasi yang pernah diraih",
-            area: true
+            label: "Link Drive",
+            placeholder: "Link drive untuk berkas offline"
         },
     ]
 
-    const daftar = async (nama, nim, prodi, kond) => {
+    const daftar = async (nama, nim, prodi) => {
         const body = {
-            proker: kond,
             nim: nim,
             nama: nama,
             prodi: prodi,
@@ -149,16 +169,17 @@ function Formpk2Temp(props) {
             alamatTinggal: childProps.find(isi => isi["key"] === "tinggal").value,
             kontak: childProps.find(isi => isi["key"] === "kontak").value,
             email: childProps.find(isi => isi["key"] === "email").value,
-            motto: childProps.find(isi => isi["key"] === "motto").value,
-            alasan: childProps.find(isi => isi["key"] === "alasan").value,
-            lebihkurang : childProps.find(isi => isi["key"] === "lebihkurang").value,
-            organisasi : childProps.find(isi => isi["key"] === "organisasi").value,
-            kepanitiaan : childProps.find(isi => isi["key"] === "kepanitiaan").value,
-            lainnya : childProps.find(isi => isi["key"] === "lainnya").value,
-            prestasi : childProps.find(isi => isi["key"] === "prestasi").value,
+            mottoHidup: childProps.find(isi => isi["key"] === "motto").value,
+            pilihan1: pilihan1,
+            alasanMemilih1: childProps.find(isi => isi["key"] === "alasan1").value,
+            pilihan2: pilihan2,
+            alasanMemilih2: childProps.find(isi => isi["key"] === "alasan2").value,
+            linkDrive: childProps.find(isi => isi["key"] === "linkDrive").value
         };
         // console.log("isiBody", body)
-        const URL = "https://bemfilkom.ub.ac.id/secure/api/2020/KapelProkerBesar/";
+        // const URL = "https://bemfilkom.ub.ac.id/secure/api/2020/KapelProkerBesar/";
+        // https://cors-anywhere.herokuapp.com/
+        const URL = "https://bemfilkom.ub.ac.id/secure/api/2020/OprecStaffPK2/";
         const res = await fetch(URL, {
             method: "POST",
             headers: {
@@ -168,14 +189,14 @@ function Formpk2Temp(props) {
         })
         const result = res;
         const data = await res.json();
-        console.log(data);
+        // console.log(data);
         if (!result.ok) {
             return false;
             setLoading(false);
             alert("Ups!! Terjadi Masalah Koneksi");
         } else {
-            let par = proker;
-            props.history.replace(`/oprec/terdaftar/${par}`);
+            // let par = proker;
+            props.history.replace(`/terdaftar`);
         }
     };
 
@@ -185,16 +206,25 @@ function Formpk2Temp(props) {
                 <Header textAlign="center" as='h1' content='Form Pendaftaran Online PK2MABA' />
                 <div style={{ width: '50vw' }}>
                     <Form onSubmit={() => {
-                        setLoading(true);
-                        daftar(props.nama, props.nim, props.prodi, proker);
+                        if ((pilihan1 == null) || (pilihan2 == null)) {
+                            setPesan(true);
+                        } else {
+                            setLoading(true);
+                            setPesan(false)
+                            daftar(props.nama, props.nim, props.prodi);
+                        }
                     }}>
                         {
                             childProps.map((isi) => {
-                                if (isi.area == true) {
+                                if (isi.cond == "area") {
                                     return (
                                         <React.Fragment>
                                             <Form.TextArea fluid {...isi} />
                                         </React.Fragment>
+                                    )
+                                } else if (isi.cond == "dropdown") {
+                                    return (
+                                        <Form.Select required selection clearable fluid options={divisi} {...isi} />
                                     )
                                 } else {
                                     return (
@@ -219,6 +249,15 @@ function Formpk2Temp(props) {
                             </Button>
                         )}
                     </Form>
+                    <br />
+                    {pesan === true && (
+                        <Message
+                            style={{ marginBottom: 50, marginTop: -10 }}
+                            error
+                            header='Pilihan Kosong'
+                            content='Silahkan isi pilihan pertama dan kedua anda'
+                        />
+                    )}
                 </div>
             </div>
         </React.Fragment>

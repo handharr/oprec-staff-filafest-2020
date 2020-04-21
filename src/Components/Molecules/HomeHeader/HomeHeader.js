@@ -16,7 +16,7 @@ function HomeHeader(props) {
     return (
         <header id="top" style={{backgroundImage:fotonya()}}>
             <div id="headercontain">
-                <div id="welcome">Open Tender Ketua Pelaksana {proker} 2020</div>
+                <div id="welcome">Open Recruitment Staff PK2MABA 2020</div>
                 <span class="arrow animated bounce"></span>
             </div>
         </header>

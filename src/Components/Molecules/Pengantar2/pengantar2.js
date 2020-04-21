@@ -8,13 +8,13 @@ import { HeaderContent } from '../../Atoms';
 const PengantarKanan = (props) => {
     return (
         <Grid.Column verticalAlign="middle">
-            <Header as='h1' style={{ marginBottom: 5 }}>
+            {/* <Header as='h1' style={{ marginBottom: 5 }}>
                 <Header.Content style={{ color: "#1B1E83" }}>
                     SELAMAT DATANG
                         </Header.Content>
-            </Header>
+            </Header> */}
             <Segment basic>
-                <Puisi />
+                {/* <Puisi /> */}
                 <HeaderContent judul="Prosedur Pendaftaran" />
                 <p style={{ color: "#333", fontSize: 18, fontWeight: 400 }}>
                     Prosedur pendaftaran Online calon staff BEM Filkom 2020
@@ -59,14 +59,8 @@ const PengantarKanan = (props) => {
                         </Step>
                         <Step>
                             <Step.Content>
-                                <Step.Title style={{ fontSize: 14 }}>Upload Twibbon</Step.Title>
-                                <Step.Description>Download dan upload twibbon yang telah disediakan</Step.Description>
-                            </Step.Content>
-                        </Step>
-                        <Step>
-                            <Step.Content>
-                                <Step.Title style={{ fontSize: 14 }}>Tunggu Jadwal Interview & FGD</Step.Title>
-                                <Step.Description>Tunggu konfirmasi lebih lanjut untuk mendapat jadwal interview dan FGD</Step.Description>
+                                <Step.Title style={{ fontSize: 14 }}>Tunggu Jadwal Interview Online</Step.Title>
+                                <Step.Description>Tunggu konfirmasi lebih lanjut untuk mendapat jadwal interview online</Step.Description>
                             </Step.Content>
                         </Step>
                     </Step.Group>
@@ -82,7 +76,7 @@ const PengantarKanan = (props) => {
                         style={{ fontSize: 12.5 }}
                         required
                         checked={props.checked}
-                        label={<label>Saya telah membaca, menyetujui, dan mentaati peraturan umum dan kode etik yang berlaku</label>}
+                        label={<label>Saya telah membaca, menyetujui, dan siap mengikuti alur pendaftaran serta amanah dalam tiap proses didalamnya</label>}
                         onChange={props.handler}
                     />
                     <br/>

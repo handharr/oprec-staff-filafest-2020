@@ -1,31 +1,25 @@
 import React from "react";
 import { Button, Form, Header, Message } from "semantic-ui-react";
 import { GlobalConsumer } from '../../../Config/Context';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
 function LoginPage(props) {
 
-	let { proker } = useParams();
+	// let { proker } = useParams();
 
 	const [nim, setNim] = React.useState("");
 	const [password, setPassword] = React.useState("");
 	const [loading, setLoading] = React.useState(false);
 	const [message, setMessage] = React.useState(false);
 
-	const acara = () => {
-		if (proker === "filafest") {
-			return "/oprec/formfilafest/filafest";
-		} else {
-			return "/oprec/formpk2/pk2maba";
-		}
-	}
+	// console.log("properti login",props)
 
 	return (
 		<React.Fragment>
 			<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
 				<Header as="h2" textAlign="center" style={{ marginTop: 30 }}>
-					Login Opten Kapel {proker.toUpperCase()}
+					Login Oprec Staff PK2MABA
 					</Header>
 				<div style={{ width: '50vw' }}>
 					<Form size="large">
@@ -52,43 +46,38 @@ function LoginPage(props) {
 									// console.log("cek 19",cek1);
 									// console.log("cek 18",cek2);
 									// console.log("cek filkom",cek3);
-									console.log("cek nim",nim.length === 15 && cek3 && (cek1 || cek2 || cek4));
+									// console.log("cek nim",nim.length === 15 && cek3 && (cek1 || cek2 || cek4));
 									if (nim.length === 15 && cek3 && (cek1 || cek2 || cek4)) {
-										if (proker === (null || undefined || "")) {
-											alert("Ups!! Maaf terjadi kendala, silahkan pilih proker terlebih dahulu!");
-											props.history.replace("/")
-										} else {
-											await props.login(nim, password).then(async (ress) => {
-												let a = ress;
-												// console.log(ress);
-												if (!a.status) {
-													setMessage(true);
-													setLoading(false)
-												} else {
-													try {
-														let nimnya = nim;
-														let kond = proker;
-														let URL = `https://bemfilkom.ub.ac.id/secure/api/2020/KapelProkerBesar/?check=${nimnya}&proker=${kond}`;
-														const res = await fetch(URL, {
-															method: "GET",
-														});
-														const result = res;
-														const data = await res.json();
-														// console.log(data);
-														if (res.ok) {
-															setLoading(false);
-															let par = proker;
-															data.status === 1 ? props.history.replace(`/oprec/terdaftar/${par}`) : props.history.replace(acara());
-														} else {
-															alert("Mohon Maaf Terdapat Masalah Koneksi");
-														}
-													} catch (error) {
-														console.log("Konsol error : ", error);
+										await props.login(nim, password).then(async (ress) => {
+											let a = ress;
+											// console.log("ress hal login",ress);
+											if (!a.status || a.status==false) {
+												// setMessage(true);
+												setLoading(false);
+												alert("Mohon Maaf Terdapat Masalah Koneksi");
+											} else {
+												try {
+													let nimnya = nim;
+													let URL = `https://bemfilkom.ub.ac.id/secure/api/2020/OprecStaffPK2/?check=${nimnya}`;
+													const res = await fetch(URL, {
+														method: "GET",
+													});
+													const result = res;
+													const data = await res.json();
+													console.log("data check",data);
+													if (data) {
+														setLoading(false);
+														data.status === 1 ? props.history.replace(`/terdaftar`) : props.history.replace("/formpk2");
+													} else {
 														alert("Mohon Maaf Terdapat Masalah Koneksi");
+														setLoading(false);
 													}
+												} catch (error) {
+													console.log("Konsol error : ", error);
+													alert("Mohon Maaf Terdapat Masalah Koneksi");
 												}
-											});
-										}
+											}
+										});
 									} else {
 										setLoading(false);
 										setMessage(true);

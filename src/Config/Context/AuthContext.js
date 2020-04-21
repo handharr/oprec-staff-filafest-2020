@@ -33,6 +33,7 @@ export const GlobalProvider = (Children) => {
 					password: pass
 				};
 				try {
+					// https://cors-anywhere.herokuapp.com/
 					const res = await fetch("https://bemfilkom.ub.ac.id/secure/api/auth/", {
 						method: "POST",
 						headers: {
@@ -42,7 +43,7 @@ export const GlobalProvider = (Children) => {
 					});
 					const result = res;
 					const data = await res.json();
-					// console.log(data);
+					// console.log("data auth context",data);
 					if (!result.ok) {
 						return false;
 					} else {
@@ -57,6 +58,7 @@ export const GlobalProvider = (Children) => {
 
 				} catch (error) {
 					console.log("Konsol error : ", error);
+					return { "status": false };
 				}
 			};
 
