@@ -1,22 +1,16 @@
 import React from 'react';
-import { Grid, Button, Image } from "semantic-ui-react";
+// import { Grid, Button, Image } from "semantic-ui-react";
 import { GlobalConsumer } from '../../../Config';
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 function HomeHeader(props) {
 
-    let { proker } = useParams();
-
-    const fotonya = () => {
-        let dirFilafest = `url("./img/filafest-min.jpg")`;
-        let dirPk2 = `url("./img/pk2.jpg")`;
-        return proker === "filafest" ? dirFilafest : dirPk2;
-    }
+    // let { proker } = useParams();
 
     return (
-        <header id="top" style={{backgroundImage:fotonya()}}>
+        <header id="top" style={{backgroundImage:`url("./img/filafest-min.jpg")`}}>
             <div id="headercontain">
-                <div id="welcome">Open Recruitment Staff PK2MABA 2020</div>
+                <div id="welcome">Open Recruitment Staff filafest 2020</div>
                 <span class="arrow animated bounce"></span>
             </div>
         </header>

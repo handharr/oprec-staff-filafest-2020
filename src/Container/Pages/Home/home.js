@@ -2,36 +2,36 @@ import React from "react";
 import { Button, Container, Divider } from "semantic-ui-react";
 import { GlobalConsumer } from '../../../Config';
 import { HomeHeader, KontenSatu, KontenTiga } from '../../../Components/Molecules';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import './style.scss';
 
 function Home(props) {
-	const pk2 = [
+	const filafest = [
 		{
-			teks1: "PK2MABA",
-			teks2: "Apa sih PK2MABA itu?",
-			teks3: "Pengenalan Kehidupan Kampus Mahasiswa Baru Merupakan rangkaian kegiatan yang memiliki tujuan untuk menyambut dan memperkenalkan kehidupan kampus kepada mahasiswa baru dengan menanamkan budaya dan nilai-nilai dasar sebagai mahasiswa aktif didalamnya yang berkolaborasi dengan pihak dekanat Filkom dalam pelaksanaannya.",
+			teks1: "Filkom Anniversary Festival",
+			teks2: "Apa sih Filafest itu?",
+			teks3: "Filkom Anniversary Festival atau biasa disebut Diesnatalis Fakultas Ilmu Komputer yang bertujuan sebagai memperingati perayaan ulang tahun Fakultas Ilmu Komputer ke 9 Tahun yang dimana pelaksanaannya akan melibatkan panitia mahasiswa yang dibawahi oleh Kementrian Pengembangan Sumber Daya Mahasiswa khususnya Direktorat Jendral Pengembangan dan Pemberdayaan Manusia yang akan berkoordinasi dengan pihak dari panitia dosen terkait konsep acara dan pendanaan. Yang dimana dalam pelaksanannya acara Diesnatalis ini melibatkan seluruh Civitas Akademika Fakultas Ilmu Komputer serta Alumni.",
 		},
 		[
 			{
-				tgl: "20 - 26 April 2020",
+				tgl: "26 April - 02 Mei 2020",
 				desc: "Pendaftaran Online",
 				color: "olive"
 			},
 			{
-				tgl: "22 - 29 April 2020",
-				desc: "Screening Online",
+				tgl: "30 April - 05 Mei 2020",
+				desc: "Online Screening",
 				color: "blue"
 			},
 			{
-				tgl: "02 Mei 2020",
+				tgl: "07 Mei 2020",
 				desc: "Pengumuman",
 				color: "green"
 			}
 		],
 		{
 			teks1: "Timeline Open Recruitment Staff",
-			teks2: "Rangkaian kegiatan Open Recruitment Staff PK2MABA 2020",
+			teks2: "Rangkaian kegiatan Open Recruitment Staff Filafest 2020",
 		}
 	]
 
@@ -41,10 +41,10 @@ function Home(props) {
 			<HomeHeader />
 			<Divider hidden />
 			<Container>
-				<KontenSatu event={pk2[0]} />
+				<KontenSatu event={filafest[0]} />
 				<br />
 				<Divider section />
-				<KontenTiga judul={pk2[2]} isi={pk2[1]} />
+				<KontenTiga judul={filafest[2]} isi={filafest[1]} />
 				<br></br>
 				<div className="ui middle aligned center aligned container">
 					<Button
@@ -55,7 +55,7 @@ function Home(props) {
 							// let par = proker;
 							props.history.replace("/pendaftaran");
 						}}>
-						<Button.Content visible>Daftar Oprec PK2MABA</Button.Content>
+						<Button.Content visible>Daftar Oprec Filafest</Button.Content>
 					</Button>
 				</div>
 				<Divider hidden />

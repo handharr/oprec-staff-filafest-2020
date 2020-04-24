@@ -16,7 +16,7 @@ export const Terdaftar = (props) => {
 			<div style={{ width: '50vw' }}>
 				<Message>
 					<br />
-					<h1 style={{ textAlign: 'center', color: '#1897D4' }}>Terimakasih telah mendaftar Open Recruitment Staff PK2MABA 2020!</h1>
+					<h1 style={{ textAlign: 'center', color: '#1897D4' }}>Terimakasih telah mendaftar Open Recruitment Staff Filafest 2020!</h1>
 					<br />
 					{/* <h3 style={{ color: 'red', textAlign: 'center' }}>Silahkan Download Berkas Offline Dibawah Ini!!!</h3>
 					<center>

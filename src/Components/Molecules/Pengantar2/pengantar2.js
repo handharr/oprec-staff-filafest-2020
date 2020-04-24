@@ -17,7 +17,7 @@ const PengantarKanan = (props) => {
                 {/* <Puisi /> */}
                 <HeaderContent judul="Prosedur Pendaftaran" />
                 <p style={{ color: "#333", fontSize: 18, fontWeight: 400 }}>
-                    Prosedur pendaftaran Online calon staff BEM Filkom 2020
+                    Prosedur pendaftaran Online calon staff Filafest 2020
                 </p>
                 <React.Fragment>
                     <Step.Group ordered size="tiny" vertical>
@@ -106,21 +106,6 @@ const PengantarKanan = (props) => {
                             }
                         />
                     )}
-                    {/* <Button
-                                
-                                onClick={async () => {
-                                    this.props.history.replace("/login");
-                                }}>
-                                <Button.Content visible>Daftar Sekarang</Button.Content>
-                            </Button> */}
-                    {/* <Button
-                                size="large"
-                                style={{ backgroundColor: "#c5cae9s" }}
-                                onClick={async () => {
-                                    this.props.history.replace("/");
-                                }}>
-                                <Button.Content visible>Kembali ke Halaman Utama</Button.Content>
-                            </Button> */}
                 </Segment>
             </Segment>
         </Grid.Column>

@@ -7,6 +7,10 @@ import { GlobalConsumer } from '../../../Config';
 
 function Formpk2Temp(props) {
     // State untuk form pemohon
+    const [pesan, setPesan] = React.useState(false);
+    
+    const [loading, setLoading] = React.useState(false);
+
     function useFormInput(initialValue) {
         const [value, setValue] = React.useState(initialValue);
 
@@ -20,16 +24,18 @@ function Formpk2Temp(props) {
         };
     }
 
-    const [pesan, setPesan] = React.useState(false);
-    const [pilihan1, setPilihan1] = React.useState(null);
-    const [pilihan2, setPilihan2] = React.useState(null);
+    function useFormDropdown(initialValue) {
+        const [nilai,setValue] = React.useState(initialValue);
 
-    const ubahPilihan1 = (e) => {
-        setPilihan1(e.target.innerText);
-    }
-    
-    const ubahPilihan2 = (e) => {
-        setPilihan2(e.target.innerText);
+        const onChange = e => {
+            console.log(e.target.value)
+            setValue(e.target.textContent)
+        }
+
+        return{
+            onChange,
+            nilai
+        }
     }
 
     // let { proker } = useParams();
@@ -46,13 +52,6 @@ function Formpk2Temp(props) {
         { key: 10, value: 'pendamping', text: 'Divisi Pendamping' },
         { key: 11, value: 'ddm', text: 'Divisi Dokumentasi, Desain, dan Multimedia (DDM)' },
     ]
-
-    // const divisi2=[
-    //     { key: 12, value: null, text: '--Tidak Memilih--', disabled : true },
-    //     ...divisi,
-    // ]
-
-    const [loading, setLoading] = React.useState(false);
 
     const childProps = [
         {
@@ -120,7 +119,7 @@ function Formpk2Temp(props) {
         },
         {
             key: "pilihan1",
-            onChange : ubahPilihan1,
+            ...useFormDropdown(null),
             required: true,
             label: "Pilihan Divisi 1",
             cond: "dropdown",
@@ -136,7 +135,7 @@ function Formpk2Temp(props) {
         },
         {
             key: "pilihan2",
-            onChange : ubahPilihan2,
+            ...useFormDropdown(null),
             required: true,
             label: "Pilihan Divisi 2",
             cond: "dropdown",
@@ -170,16 +169,17 @@ function Formpk2Temp(props) {
             kontak: childProps.find(isi => isi["key"] === "kontak").value,
             email: childProps.find(isi => isi["key"] === "email").value,
             mottoHidup: childProps.find(isi => isi["key"] === "motto").value,
-            pilihan1: pilihan1,
+            pilihan1: childProps.find(isi => isi["key"] === "pilihan1").nilai,
             alasanMemilih1: childProps.find(isi => isi["key"] === "alasan1").value,
-            pilihan2: pilihan2,
+            pilihan2: childProps.find(isi => isi["key"] === "pilihan2").nilai,
             alasanMemilih2: childProps.find(isi => isi["key"] === "alasan2").value,
             linkDrive: childProps.find(isi => isi["key"] === "linkDrive").value
         };
         // console.log("isiBody", body)
         // const URL = "https://bemfilkom.ub.ac.id/secure/api/2020/KapelProkerBesar/";
         // https://cors-anywhere.herokuapp.com/
-        const URL = "https://bemfilkom.ub.ac.id/secure/api/2020/OprecStaffPK2/";
+        // const URL = "https://bemfilkom.ub.ac.id/secure/api/2020/OprecStaffPK2/";
+        const URL = "https://bemfilkom.ub.ac.id/secure/api/2020/OprecStaffFilafest";
         const res = await fetch(URL, {
             method: "POST",
             headers: {
@@ -203,10 +203,10 @@ function Formpk2Temp(props) {
     return (
         <React.Fragment>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '3vw' }}>
-                <Header textAlign="center" as='h1' content='Form Pendaftaran Online PK2MABA' />
+                <Header textAlign="center" as='h1' content='Form Pendaftaran Online Filafest' />
                 <div style={{ width: '50vw' }}>
                     <Form onSubmit={() => {
-                        if ((pilihan1 == null) || (pilihan2 == null)) {
+                        if ((childProps.find(isi => isi["key"] === "pilihan1").nilai == null) || (childProps.find(isi => isi["key"] === "pilihan2").nilai == null)) {
                             setPesan(true);
                         } else {
                             setLoading(true);
@@ -224,7 +224,9 @@ function Formpk2Temp(props) {
                                     )
                                 } else if (isi.cond == "dropdown") {
                                     return (
-                                        <Form.Select required selection clearable fluid options={divisi} {...isi} />
+                                        <React.Fragment>
+                                            <Form.Dropdown required selection clearable fluid options={divisi} {...isi} />
+                                        </React.Fragment>
                                     )
                                 } else {
                                     return (
