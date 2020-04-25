@@ -19,7 +19,7 @@ function LoginPage(props) {
 			<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
 				<Header as="h2" textAlign="center" style={{ marginTop: 30 }}>
-					Login Oprec Staff PK2MABA
+					Login Oprec Staff Filafest
 					</Header>
 				<div style={{ width: '50vw' }}>
 					<Form size="large">
@@ -58,7 +58,7 @@ function LoginPage(props) {
 											} else {
 												try {
 													let nimnya = nim;
-													let URL = `https://bemfilkom.ub.ac.id/secure/api/2020/OprecStaffPK2/?check=${nimnya}`;
+													let URL = `https://bemfilkom.ub.ac.id/secure/api/2020/OprecStaffFilafest/?check=${nimnya}`;
 													const res = await fetch(URL, {
 														method: "GET",
 													});

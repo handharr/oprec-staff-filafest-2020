@@ -41,16 +41,15 @@ function Formpk2Temp(props) {
     // let { proker } = useParams();
 
     const divisi = [
-        { key: 1, value: 'acara', text: 'Divisi Acara' },
-        { key: 2, value: 'sqc', text: 'Divisi Student Quality Control' },
-        { key: 4, value: 'humas', text: 'Divisi Hubungan Masyarakat (Humas)' },
-        { key: 5, value: 'perkap', text: 'Divisi Perlengkapan' },
-        { key: 6, value: 'pit', text: 'Divisi Publikasi dan IT' },
         { key: 7, value: 'kestari', text: 'Divisi Kestari' },
-        { key: 8, value: 'korlap', text: 'Divisi Koordinator Lapangan (Korlap)' },
-        { key: 9, value: 'komkes', text: 'Divisi Konsumsi dan Kesehatan (Komkes)' },
-        { key: 10, value: 'pendamping', text: 'Divisi Pendamping' },
-        { key: 11, value: 'ddm', text: 'Divisi Dokumentasi, Desain, dan Multimedia (DDM)' },
+        { key: 1, value: 'acara', text: 'Divisi Acara' },
+        { key: 5, value: 'kreatif', text: 'Divisi Kreatif' },
+        { key: 4, value: 'humas', text: 'Divisi Hubungan Masyarakat' },
+        { key: 11, value: 'ddm', text: 'Divisi DDM' },
+        { key: 8, value: 'transkoper', text: 'Divisi Transkoper' },
+        { key: 6, value: 'kodanus', text: 'Divisi Kodanus' },
+        { key: 10, value: 'sponsor', text: 'Divisi Sponsor' },
+        { key: 9, value: 'kemankes', text: 'Divisi Kemankes' },
     ]
 
     const childProps = [
@@ -178,8 +177,7 @@ function Formpk2Temp(props) {
         // console.log("isiBody", body)
         // const URL = "https://bemfilkom.ub.ac.id/secure/api/2020/KapelProkerBesar/";
         // https://cors-anywhere.herokuapp.com/
-        // const URL = "https://bemfilkom.ub.ac.id/secure/api/2020/OprecStaffPK2/";
-        const URL = "https://bemfilkom.ub.ac.id/secure/api/2020/OprecStaffFilafest";
+        const URL = "https://bemfilkom.ub.ac.id/secure/api/2020/OprecStaffFilafest/";
         const res = await fetch(URL, {
             method: "POST",
             headers: {

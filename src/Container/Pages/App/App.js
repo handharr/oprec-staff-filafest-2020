@@ -60,7 +60,7 @@ function App(props) {
   return (
     <React.Fragment>
       <Navbar nama="tes" />
-      {/* <Switch>
+      <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/login" component={LoginPage} />
         <Route path="/pendaftaran" component={Pengantar} />
@@ -68,8 +68,8 @@ function App(props) {
         <PrivateRoute path="/closed" component={Tutup} status={props.isLogged} />
         <PrivateRoute path="/close" component={Predate} status={props.isLogged} />
         <PrivateRoute path="/formpk2" component={Formpk2Temp} status={props.isLogged} />
-      </Switch> */}
-      <Formpk2Temp/>
+      </Switch>
+      {/* <Formpk2Temp/> */}
       <Footer />
     </React.Fragment>
   );
